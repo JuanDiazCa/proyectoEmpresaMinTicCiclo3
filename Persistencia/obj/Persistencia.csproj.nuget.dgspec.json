@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/desarrollo/Desktop/proyectoEmpresaMinTicCiclo3/Persistencia/Persistencia.csproj": {}
+    "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Persistencia\\Persistencia.csproj": {}
   },
   "projects": {
-    "/Users/desarrollo/Desktop/proyectoEmpresaMinTicCiclo3/Persistencia/Persistencia.csproj": {
+    "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Persistencia\\Persistencia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/desarrollo/Desktop/proyectoEmpresaMinTicCiclo3/Persistencia/Persistencia.csproj",
+        "projectUniqueName": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Persistencia\\Persistencia.csproj",
         "projectName": "Persistencia",
-        "projectPath": "/Users/desarrollo/Desktop/proyectoEmpresaMinTicCiclo3/Persistencia/Persistencia.csproj",
-        "packagesPath": "/Users/desarrollo/.nuget/packages/",
-        "outputPath": "/Users/desarrollo/Desktop/proyectoEmpresaMinTicCiclo3/Persistencia/obj/",
+        "projectPath": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Persistencia\\Persistencia.csproj",
+        "packagesPath": "C:\\Users\\Juan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Persistencia\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "/Users/desarrollo/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Juan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,6 +43,28 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -52,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
