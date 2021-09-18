@@ -8,15 +8,13 @@ namespace Dominio.Entidades
 {
     public class Usuario : Rol
     {
-        public String Usuario {get; set;}
-        public String clave {get; set;}
+        public Usuario(string nombre, bool ingresar, bool modificar, bool consultar, bool eliminar, bool estado) : base(nombre, ingresar, modificar, consultar, eliminar, estado)
+        {
+        }
+
+        public string usuario {get; set;}
+        public string clave {get; set;}
         public Rol rol {get; set;}
 
-        public Usuario(String usuario, String clave, Rol rol) 
-        {
-            this.Usuario = usuario;
-            this.clave = clave;
-            this.rol = rol;
-        }
     }
 }

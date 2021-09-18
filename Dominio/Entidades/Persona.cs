@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Reflection.Metadata;
@@ -10,10 +11,10 @@ namespace Dominio.Entidades
         public string Nombre { get; set; }
         public string PrimerApellido { get; set; }
         public string SegundoApellido { get; set; }
-        public Date FechaNacimiento { get; set; } 
+        public DateTime FechaNacimiento { get; set; } 
         public string Documento { get; set; }  
 
-        public Persona(string id, string nombre, string primerApellido, string segundoApellido, Date fechaNacimiento, string documento) 
+        public Persona(string id, string nombre, string primerApellido, string segundoApellido, DateTime fechaNacimiento, string documento) 
         {
             this.Id = id;
             this.Nombre = nombre;

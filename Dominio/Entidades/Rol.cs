@@ -7,14 +7,14 @@ namespace Dominio.Entidades
 {
     public class Rol
     {
-        public String Nombre {get; set;}
+        public string Nombre {get; set;}
         public bool Ingresar {get; set;}
         public bool Modificar {get; set;}
         public bool Consultar {get; set;}
         public bool Eliminar {get; set;}
         public bool Estado {get; set;}
 
-        public Rol(String nombre, bool ingresar, bool modificar, bool consultar, bool eliminar, bool estado) 
+        public Rol(string nombre, bool ingresar, bool modificar, bool consultar, bool eliminar, bool estado) 
         {
             this.Nombre = nombre;
             this.Ingresar = ingresar;
