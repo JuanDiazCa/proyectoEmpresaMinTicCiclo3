@@ -1,4 +1,5 @@
 ﻿using System;
+using Dominio;
 
 namespace Aplicacion
 {
@@ -6,7 +7,7 @@ namespace Aplicacion
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello Team D Desarroladores!");
         }
     }
 }
