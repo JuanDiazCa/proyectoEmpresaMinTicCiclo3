@@ -10,5 +10,6 @@ namespace Persistencia.AppRepositorios
         public DbSet<Usuario> Usuarios {get;set;}
         public DbSet<Empleado> Empleados {get;set;}
         public DbSet<Cliente> Clientes {get;set;}
+        public DbSet<Empresa> Empresas {get;set;}
     }
 }
