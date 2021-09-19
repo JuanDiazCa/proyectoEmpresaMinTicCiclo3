@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Dominio.Entidades;
 
 namespace Persistencia.AppRepositorios
 {
