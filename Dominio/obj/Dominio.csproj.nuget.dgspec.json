@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Desktop\\Desarrollo de Software\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\Dominio.csproj": {}
+    "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\Dominio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Desktop\\Desarrollo de Software\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\Dominio.csproj": {
+    "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\Desarrollo de Software\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\Dominio.csproj",
+        "projectUniqueName": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\Dominio.csproj",
         "projectName": "Dominio",
-        "projectPath": "C:\\Users\\HP\\Desktop\\Desarrollo de Software\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\Dominio.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\Desarrollo de Software\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\obj\\",
+        "projectPath": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\Dominio.csproj",
+        "packagesPath": "C:\\Users\\Juan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Juan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

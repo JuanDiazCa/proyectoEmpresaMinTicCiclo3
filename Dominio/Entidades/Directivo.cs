@@ -1,15 +1,15 @@
 using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dominio.Entidades
 {
     public class Directivo : Empleado
     {
-        public Directivo(int idDirectivo, string categoria, int idEmpleado, int sueldoBruto, string idPersona, string nombre, string primerApellido, string segundoApellido, DateTime fechaNacimiento, string documento)  : base(idEmpleado, sueldoBruto, idPersona, nombre, primerApellido, segundoApellido, fechaNacimiento, documento)
-        {
-            IdDirectivo = idDirectivo;
-            Categoria = categoria;
-        }
         public int IdDirectivo {set; get;}
+        [Required]
+        [StringLength(30)]
         public string Categoria{get;set;}
     }
 }

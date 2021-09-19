@@ -1,17 +1,15 @@
 using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dominio.Entidades
 {
     public class Cliente : Persona
     {
-        public Cliente(int idCliente, string telefono, string idPersona, string nombre, string primerApellido, string segundoApellido, DateTime fechaNacimiento, string documento) : base(idPersona, nombre, primerApellido, segundoApellido, fechaNacimiento, documento)
-        {
-            this.IdCliente = idCliente;
-            this.Telefono = telefono;
-
-        }
-
         public int IdCliente { get; set; }
+        [Required]
+        [StringLength(15)]
         public string Telefono { get; set; }
     }
 }
