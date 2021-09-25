@@ -1,8 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Globalization;
-using System.Reflection.Metadata;
-using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dominio.Entidades
 {
@@ -21,5 +20,6 @@ namespace Dominio.Entidades
         [Required]
         [StringLength(30)]
         public string Documento { get; set; }  
+        public Empresa Empresa {get; set;}
     }
 }

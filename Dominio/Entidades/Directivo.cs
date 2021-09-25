@@ -5,11 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dominio.Entidades
 {
-    public class Directivo : Empleado
+    public class Directivo
     {
-        public int IdDirectivo {set; get;}
+        public int Id {set; get;}
         [Required]
         [StringLength(30)]
         public string Categoria{get;set;}
+        public Empleado Empleado {get; set;}
     }
 }

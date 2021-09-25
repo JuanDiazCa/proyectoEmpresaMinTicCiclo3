@@ -17,6 +17,5 @@ namespace Dominio.Entidades
         [Required]
         [StringLength(50)]
         public string Direccion { get; set; }       
-
     }
 }

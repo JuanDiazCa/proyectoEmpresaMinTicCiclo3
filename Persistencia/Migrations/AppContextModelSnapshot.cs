@@ -19,6 +19,70 @@ namespace Persistencia.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
+            modelBuilder.Entity("Dominio.Entidades.Cliente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int?>("PersonaId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Telefono")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonaId");
+
+                    b.ToTable("Clientes");
+                });
+
+            modelBuilder.Entity("Dominio.Entidades.Directivo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Categoria")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<int?>("EmpleadoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmpleadoId");
+
+                    b.ToTable("Directivos");
+                });
+
+            modelBuilder.Entity("Dominio.Entidades.Empleado", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int?>("PersonaId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("SueldoBruto")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonaId");
+
+                    b.ToTable("Empleados");
+                });
+
             modelBuilder.Entity("Dominio.Entidades.Empresa", b =>
                 {
                     b.Property<int>("Id")
@@ -53,14 +117,13 @@ namespace Persistencia.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Documento")
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<int?>("EmpresaId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("FechaNacimiento")
                         .HasColumnType("datetime2");
@@ -81,9 +144,9 @@ namespace Persistencia.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Personas");
+                    b.HasIndex("EmpresaId");
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Persona");
+                    b.ToTable("Personas");
                 });
 
             modelBuilder.Entity("Dominio.Entidades.Rol", b =>
@@ -95,10 +158,6 @@ namespace Persistencia.Migrations
 
                     b.Property<bool>("Consultar")
                         .HasColumnType("bit");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Eliminar")
                         .HasColumnType("bit");
@@ -120,43 +179,19 @@ namespace Persistencia.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Rol");
-                });
-
-            modelBuilder.Entity("Dominio.Entidades.Cliente", b =>
-                {
-                    b.HasBaseType("Dominio.Entidades.Persona");
-
-                    b.Property<int>("IdCliente")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Telefono")
-                        .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
-
-                    b.HasDiscriminator().HasValue("Cliente");
-                });
-
-            modelBuilder.Entity("Dominio.Entidades.Empleado", b =>
-                {
-                    b.HasBaseType("Dominio.Entidades.Persona");
-
-                    b.Property<int>("IdEmpleado")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("SueldoBruto")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasDiscriminator().HasValue("Empleado");
                 });
 
             modelBuilder.Entity("Dominio.Entidades.Usuario", b =>
                 {
-                    b.HasBaseType("Dominio.Entidades.Rol");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
-                    b.Property<int>("IdUsuario")
+                    b.Property<int?>("PersonaId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RolId")
                         .HasColumnType("int");
 
                     b.Property<string>("clave")
@@ -169,22 +204,64 @@ namespace Persistencia.Migrations
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
-                    b.HasDiscriminator().HasValue("Usuario");
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonaId");
+
+                    b.HasIndex("RolId");
+
+                    b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("Dominio.Entidades.Cliente", b =>
+                {
+                    b.HasOne("Dominio.Entidades.Persona", "Persona")
+                        .WithMany()
+                        .HasForeignKey("PersonaId");
+
+                    b.Navigation("Persona");
                 });
 
             modelBuilder.Entity("Dominio.Entidades.Directivo", b =>
                 {
-                    b.HasBaseType("Dominio.Entidades.Empleado");
+                    b.HasOne("Dominio.Entidades.Empleado", "Empleado")
+                        .WithMany()
+                        .HasForeignKey("EmpleadoId");
 
-                    b.Property<string>("Categoria")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                    b.Navigation("Empleado");
+                });
 
-                    b.Property<int>("IdDirectivo")
-                        .HasColumnType("int");
+            modelBuilder.Entity("Dominio.Entidades.Empleado", b =>
+                {
+                    b.HasOne("Dominio.Entidades.Persona", "Persona")
+                        .WithMany()
+                        .HasForeignKey("PersonaId");
 
-                    b.HasDiscriminator().HasValue("Directivo");
+                    b.Navigation("Persona");
+                });
+
+            modelBuilder.Entity("Dominio.Entidades.Persona", b =>
+                {
+                    b.HasOne("Dominio.Entidades.Empresa", "Empresa")
+                        .WithMany()
+                        .HasForeignKey("EmpresaId");
+
+                    b.Navigation("Empresa");
+                });
+
+            modelBuilder.Entity("Dominio.Entidades.Usuario", b =>
+                {
+                    b.HasOne("Dominio.Entidades.Persona", "Persona")
+                        .WithMany()
+                        .HasForeignKey("PersonaId");
+
+                    b.HasOne("Dominio.Entidades.Rol", "Rol")
+                        .WithMany()
+                        .HasForeignKey("RolId");
+
+                    b.Navigation("Persona");
+
+                    b.Navigation("Rol");
                 });
 #pragma warning restore 612, 618
         }

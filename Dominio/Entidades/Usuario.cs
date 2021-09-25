@@ -1,19 +1,20 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Globalization;
-using System.Reflection.Metadata;
-using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dominio.Entidades
 {
-    public class Usuario : Rol
+    public class Usuario
     {
-        public int IdUsuario { get; set; }
+        public int Id { get; set; }
         [Required]
         [StringLength(15)]
         public string usuario { get; set; }
         [Required]
         [StringLength(30)]
         public string clave { get; set; }
+        public Rol Rol {get; set;}
+        public Persona Persona {get; set;}
     }
 }

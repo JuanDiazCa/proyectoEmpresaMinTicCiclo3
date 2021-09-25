@@ -21,4 +21,36 @@ namespace Persistencia.AppRepositorios
         }
     }
 }
-//dotnet ef migrations add Entidades --startup-project ..\HospiEnCasa.App.Consola\
+/**
+    __________________________________________________________________
+    PARA GENERAR LA BASE DE DATOS:
+    1. Abrir SQL Server Managment Studio y conectarse
+
+    2. En el terminal de VS Code, pararse en la carpeta Persistencia
+
+    cd Persistencia
+
+    3. En el terminal ejecutar el siguiente comando
+    
+    dotnet ef database update --startup-project ..\Aplicacion\
+    
+    Y Listo.....
+    __________________________________________________________________
+
+    Si no funciona y toca generar la migracion completa de nuevo (OJO solo si no funciona):
+    1. Borrar toda la carpeta Migrations que esta dentro de Persistencia
+    2. En el terminal de VS Code, pararse en la carpeta Persistencia
+    3. En el terminal ejecutar el siguiente comando
+
+    dotnet ef migrations add Entidades --startup-project ..\Aplicacion\
+
+    4. En la clase que termina en Designer.cs dentro de la carpeta Migrations cambiar donde dice AppContext por
+       Persistencia.AppRepositorios.AppContext
+
+    5. En la clase que termina en Snapshot.cs dentro de la carpeta Migrations cambiar donde dice AppContext por
+       Persistencia.AppRepositorios.AppContext
+
+    6. En el terminal ejecutar el siguiente comando
+    
+    dotnet ef database update --startup-project ..\Aplicacion\
+**/
