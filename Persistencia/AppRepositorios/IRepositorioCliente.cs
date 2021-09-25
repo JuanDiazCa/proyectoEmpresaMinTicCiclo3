@@ -8,8 +8,8 @@ namespace Persistencia.AppRepositorios
     {
         Cliente AgregarCliente(Cliente cliente);
         Cliente ActualizarCliente(Cliente cliente);
-        void EliminarCliente(int idPaciente);
-        Cliente ObtenerCliente(int idPaciente);
+        void EliminarCliente(int idCliente);
+        Cliente ObtenerCliente(int idCliente);
         IEnumerable<Cliente> ObtenerTodosLosClientes();
     }
 }

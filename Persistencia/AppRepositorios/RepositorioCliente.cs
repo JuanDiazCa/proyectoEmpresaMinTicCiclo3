@@ -30,17 +30,17 @@ namespace Persistencia.AppRepositorios
             }
             return clienteEncontrado;
         }
-        public void EliminarCliente(int idPaciente)
+        public void EliminarCliente(int idCliente)
         {
-            var clienteEncontrado = appContext.Clientes.FirstOrDefault(c => c.Id == idPaciente);
+            var clienteEncontrado = appContext.Clientes.FirstOrDefault(c => c.Id == idCliente);
             if(clienteEncontrado == null)
                 return;
             appContext.Clientes.Remove(clienteEncontrado);
             appContext.SaveChanges();
         }
-        public Cliente ObtenerCliente(int idPaciente)
+        public Cliente ObtenerCliente(int idCliente)
         {
-            return appContext.Clientes.FirstOrDefault(c => c.Id == idPaciente);
+            return appContext.Clientes.FirstOrDefault(c => c.Id == idCliente);
         }
         public IEnumerable<Cliente> ObtenerTodosLosClientes()
         {
