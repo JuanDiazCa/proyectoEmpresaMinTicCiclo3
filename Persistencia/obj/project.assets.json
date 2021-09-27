@@ -5814,52 +5814,39 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "/Users/desarrollo/.nuget/packages/": {}
-=======
-    "C:\\Users\\HP\\.nuget\\packages\\": {}
->>>>>>> b9f0e4268ef353c29ceca414434d441fc700ace0
+    "C:\\Users\\Juan\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Persistencia/Persistencia.csproj",
+      "projectUniqueName": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Persistencia\\Persistencia.csproj",
       "projectName": "Persistencia",
-      "projectPath": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Persistencia/Persistencia.csproj",
-      "packagesPath": "/Users/desarrollo/.nuget/packages/",
-      "outputPath": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Persistencia/obj/",
+      "projectPath": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Persistencia\\Persistencia.csproj",
+      "packagesPath": "C:\\Users\\Juan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Persistencia\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "/Users/desarrollo/.nuget/NuGet/NuGet.Config"
-=======
-      "projectUniqueName": "C:\\Users\\HP\\Desktop\\Desarrollo de Software\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Persistencia\\Persistencia.csproj",
-      "projectName": "Persistencia",
-      "projectPath": "C:\\Users\\HP\\Desktop\\Desarrollo de Software\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Persistencia\\Persistencia.csproj",
-      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HP\\Desktop\\Desarrollo de Software\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Persistencia\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> b9f0e4268ef353c29ceca414434d441fc700ace0
+        "C:\\Users\\Juan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-<<<<<<< HEAD
-            "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Dominio/Dominio.csproj": {
-              "projectPath": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Dominio/Dominio.csproj"
-=======
-            "C:\\Users\\HP\\Desktop\\Desarrollo de Software\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\Dominio.csproj": {
-              "projectPath": "C:\\Users\\HP\\Desktop\\Desarrollo de Software\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\Dominio.csproj"
->>>>>>> b9f0e4268ef353c29ceca414434d441fc700ace0
+            "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\Dominio.csproj": {
+              "projectPath": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\Dominio.csproj"
             }
           }
         }
@@ -5910,12 +5897,16 @@
             "privateAssets": "all"
           }
         },
-<<<<<<< HEAD
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
-=======
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
->>>>>>> b9f0e4268ef353c29ceca414434d441fc700ace0
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Persistencia\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

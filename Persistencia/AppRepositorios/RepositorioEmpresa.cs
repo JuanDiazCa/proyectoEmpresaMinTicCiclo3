@@ -1,6 +1,7 @@
+using System;
+using System.Linq;
 using System.Collections.Generic;
 using Dominio.Entidades;
-using System.Linq;
 
 namespace Persistencia.AppRepositorios
 {

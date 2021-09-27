@@ -1,3 +1,5 @@
+using System;
+using Dominio;
 using Dominio.Entidades;
 using System.Collections.Generic;
 
