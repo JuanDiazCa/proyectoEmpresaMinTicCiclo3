@@ -1,6 +1,7 @@
 ﻿using System;
 using Dominio;
 using Persistencia;
+using Dominio.Entidades;
 
 namespace Aplicacion
 {

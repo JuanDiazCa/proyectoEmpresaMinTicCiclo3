@@ -25,7 +25,7 @@ namespace Persistencia.AppRepositorios
             var directivoEncontrado = appContext.Directivos.FirstOrDefault(d => d.Id == directivo.Id);
             if(directivoEncontrado != null){
                 directivoEncontrado.Categoria= directivo.Categoria;
-                directivoEncontrado.Persona = directivo.Persona;
+                directivoEncontrado.Empleado = directivo.Empleado;
                 appContext.SaveChanges();
             }
             return directivoEncontrado;
@@ -40,7 +40,7 @@ namespace Persistencia.AppRepositorios
         }
         public Directivo ObtenerDirectivo(int idDirectivo)
         {
-            return appContext.Directivos.FirstOrDefault(d => d.Id == idDirectivos);
+            return appContext.Directivos.FirstOrDefault(d => d.Id == idDirectivo);
         }
         public IEnumerable<Directivo> ObtenerTodosLosDirectivos()
         {

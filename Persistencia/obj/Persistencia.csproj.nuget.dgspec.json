@@ -1,6 +1,22 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Persistencia/Persistencia.csproj": {}
+  },
+  "projects": {
+    "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Dominio/Dominio.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Dominio/Dominio.csproj",
+        "projectName": "Dominio",
+        "projectPath": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Dominio/Dominio.csproj",
+        "packagesPath": "/Users/desarrollo/.nuget/packages/",
+        "outputPath": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Dominio/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/desarrollo/.nuget/NuGet/NuGet.Config"
+=======
     "C:\\Users\\HP\\Desktop\\Desarrollo de Software\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Persistencia\\Persistencia.csproj": {}
   },
   "projects": {
@@ -15,6 +31,7 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> b9f0e4268ef353c29ceca414434d441fc700ace0
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -52,6 +69,23 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Persistencia/Persistencia.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Persistencia/Persistencia.csproj",
+        "projectName": "Persistencia",
+        "projectPath": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Persistencia/Persistencia.csproj",
+        "packagesPath": "/Users/desarrollo/.nuget/packages/",
+        "outputPath": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Persistencia/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/desarrollo/.nuget/NuGet/NuGet.Config"
+=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
@@ -67,6 +101,7 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> b9f0e4268ef353c29ceca414434d441fc700ace0
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -78,8 +113,13 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+<<<<<<< HEAD
+              "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Dominio/Dominio.csproj": {
+                "projectPath": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Dominio/Dominio.csproj"
+=======
               "C:\\Users\\HP\\Desktop\\Desarrollo de Software\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\Dominio.csproj": {
                 "projectPath": "C:\\Users\\HP\\Desktop\\Desarrollo de Software\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\Dominio.csproj"
+>>>>>>> b9f0e4268ef353c29ceca414434d441fc700ace0
               }
             }
           }
@@ -130,7 +170,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
+=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+>>>>>>> b9f0e4268ef353c29ceca414434d441fc700ace0
         }
       }
     }

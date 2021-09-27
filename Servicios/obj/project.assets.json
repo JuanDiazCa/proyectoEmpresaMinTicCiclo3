@@ -193,25 +193,22 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Juan\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "/Users/desarrollo/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Servicios\\Servicios.csproj",
+      "projectUniqueName": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Servicios/Servicios.csproj",
       "projectName": "Servicios",
-      "projectPath": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Servicios\\Servicios.csproj",
-      "packagesPath": "C:\\Users\\Juan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Servicios\\obj\\",
+      "projectPath": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Servicios/Servicios.csproj",
+      "packagesPath": "/Users/desarrollo/.nuget/packages/",
+      "outputPath": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Servicios/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Juan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "/Users/desarrollo/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -259,7 +256,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,39 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Aplicacion\\Aplicacion.csproj": {}
+    "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Aplicacion/Aplicacion.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Aplicacion\\Aplicacion.csproj": {
+    "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Aplicacion/Aplicacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Aplicacion\\Aplicacion.csproj",
+        "projectUniqueName": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Aplicacion/Aplicacion.csproj",
         "projectName": "Aplicacion",
-        "projectPath": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Aplicacion\\Aplicacion.csproj",
-        "packagesPath": "C:\\Users\\Juan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Aplicacion\\obj\\",
+        "projectPath": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Aplicacion/Aplicacion.csproj",
+        "packagesPath": "/Users/desarrollo/.nuget/packages/",
+        "outputPath": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Aplicacion/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Juan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/Users/desarrollo/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Persistencia\\Persistencia.csproj": {
-                "projectPath": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Persistencia\\Persistencia.csproj"
+              "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Persistencia/Persistencia.csproj": {
+                "projectPath": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Persistencia/Persistencia.csproj"
               }
             }
           }
@@ -70,32 +64,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\Dominio.csproj": {
+    "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Dominio/Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\Dominio.csproj",
+        "projectUniqueName": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Dominio/Dominio.csproj",
         "projectName": "Dominio",
-        "projectPath": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\Dominio.csproj",
-        "packagesPath": "C:\\Users\\Juan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\obj\\",
+        "projectPath": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Dominio/Dominio.csproj",
+        "packagesPath": "/Users/desarrollo/.nuget/packages/",
+        "outputPath": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Dominio/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Juan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/Users/desarrollo/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -128,40 +116,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Persistencia\\Persistencia.csproj": {
+    "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Persistencia/Persistencia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Persistencia\\Persistencia.csproj",
+        "projectUniqueName": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Persistencia/Persistencia.csproj",
         "projectName": "Persistencia",
-        "projectPath": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Persistencia\\Persistencia.csproj",
-        "packagesPath": "C:\\Users\\Juan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Persistencia\\obj\\",
+        "projectPath": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Persistencia/Persistencia.csproj",
+        "packagesPath": "/Users/desarrollo/.nuget/packages/",
+        "outputPath": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Persistencia/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Juan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/Users/desarrollo/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\Dominio.csproj": {
-                "projectPath": "C:\\Users\\Juan\\Documents\\MISION TIC U CALDAS\\CICLO 3\\DESARROLLO DE SOFTWARE\\PROYECTO\\proyectoEmpresaMinTicCiclo3\\Dominio\\Dominio.csproj"
+              "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Dominio/Dominio.csproj": {
+                "projectPath": "/Users/desarrollo/Desktop/proyectoEmpresa/proyectoEmpresaMinTicCiclo3/Dominio/Dominio.csproj"
               }
             }
           }
@@ -212,7 +194,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
         }
       }
     }
