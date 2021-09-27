@@ -1,5 +1,6 @@
 ﻿using System;
 using Dominio;
+using Dominio.Entidades;
 
 namespace Aplicacion
 {
