@@ -229,7 +229,7 @@ _pkginfo.txt
 # files ending in .cache can be ignored
 *.[Cc]ache
 # but keep track of directories ending in .cache
-!?*.[Cc]ache/
+#!?*.[Cc]ache/
 
 # Others
 ClientBin/
@@ -452,3 +452,17 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+## Excluir carpetas obj y bin
+/Dominio/bin/*
+/Dominio/obj/*
+
+/Aplicacion/bin/*
+/Aplicacion/obj/*
+
+/Persistencia/bin/*
+/Persistencia/obj/*
+
+/Servicios/bin/*
+/Servicios/obj/*
+
