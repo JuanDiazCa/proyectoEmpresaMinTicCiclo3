@@ -9,19 +9,19 @@ using Persistencia.AppRepositorios;
 
 namespace MyApp.Namespace
 {
-    public class ListaClientesModel : PageModel
+    public class ListaRolesModel : PageModel
     {
-        private readonly RepositorioCliente _repoCliente;
-        public IEnumerable<Cliente> Clientes {get; set;}
+        private readonly RepositorioRol _repoRol;
+        public IEnumerable<Rol> Roles {get; set;}
 
-        public ListaClientesModel(RepositorioCliente _repoCliente)
+        public ListaRolesModel(RepositorioRol _repoRol)
         {
-            this._repoCliente = _repoCliente;
+            this._repoRol = _repoRol;
         }
 
         public void OnGet()
         {
-            Clientes = _repoCliente.ObtenerTodosLosClientes();
+            Roles = _repoRol.ObtenerTodosLosRoles();
         }
     }
 }
