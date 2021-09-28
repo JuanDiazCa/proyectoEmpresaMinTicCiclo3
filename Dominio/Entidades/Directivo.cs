@@ -11,6 +11,7 @@ namespace Dominio.Entidades
         [Required]
         [StringLength(30)]
         public string Categoria{get;set;}
-        public Empleado Empleado {get; set;}
+        public int EmpleadoId { get; set; }
+        public virtual Empleado Empleado {get; set;}
     }
 }

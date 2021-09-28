@@ -14,7 +14,9 @@ namespace Dominio.Entidades
         [Required]
         [StringLength(30)]
         public string clave { get; set; }
-        public Rol Rol {get; set;}
-        public Persona Persona {get; set;}
+        public int IdRol { get; set; }
+        public virtual Rol Rol {get; set;}
+        public int PersonaId { get; set; }
+        public virtual Persona Persona {get; set;}
     }
 }

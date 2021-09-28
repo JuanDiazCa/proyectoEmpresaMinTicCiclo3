@@ -11,6 +11,7 @@ namespace Dominio.Entidades
         [Required]
         [StringLength(15)]
         public string Telefono { get; set; }
-        public Persona Persona {get; set;}
+        public int PersonaId { get; set; }
+        public virtual Persona Persona {get; set;}
     }
 }

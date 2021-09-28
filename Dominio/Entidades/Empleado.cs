@@ -10,6 +10,7 @@ namespace Dominio.Entidades
         public int Id {get; set;}
         [Required]
         public decimal SueldoBruto { get; set; }
-        public Persona Persona {get; set;}
+        public int PersonaId { get; set; }
+        public virtual Persona Persona {get; set;}
     }
 }

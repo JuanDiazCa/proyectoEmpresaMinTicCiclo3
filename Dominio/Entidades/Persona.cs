@@ -20,6 +20,7 @@ namespace Dominio.Entidades
         [Required]
         [StringLength(30)]
         public string Documento { get; set; }  
-        public Empresa Empresa {get; set;}
+        public int EmpresaId { get; set; }
+        public virtual Empresa Empresa {get; set;}
     }
 }

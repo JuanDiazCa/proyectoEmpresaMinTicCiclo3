@@ -17,10 +17,13 @@ namespace Aplicacion
         {
             Console.WriteLine("Hello Team D Desarroladores!");
             Console.WriteLine("PRUEBAS DE CRUD");
+            /**
+                Descomentar el metodo segun la prueba que se quiera hacer
+            **/
             //pruebaCrudAgregar();
-            //pruebaCrudConsultar();
+            pruebaCrudConsultar();
             //pruebaCrudActualizar();
-            pruebaCrudEliminar();
+            //pruebaCrudEliminar();
         }
 
         public static void pruebaCrudEliminar(){
@@ -35,97 +38,99 @@ namespace Aplicacion
             Console.WriteLine("Actualizando empresa");
             var empresaActualizada = new Empresa{
                 Id = 2,
-                RazonSocial = "Empresa XYZ ACTUALIZADA",
-                Nit = "123456-89",
-                Direccion = "CL 123 85 96"
+                RazonSocial = "Empresa ABC",
+                Nit = "999999999999",
+                Direccion = "CL 987 85 96"
             };
             _repoEmpresa.ActualizarEmpresa(empresaActualizada);
         }
 
         private static void pruebaCrudConsultar(){
-            Console.WriteLine("Consultar Empresa, datos:");
-            var empresa = _repoEmpresa.ObtenerEmpresa(2);
-            Console.WriteLine(empresa.RazonSocial);
-            Console.WriteLine(empresa.Nit);
-            Console.WriteLine(empresa.Direccion);
+            Console.WriteLine("Consultar Empleados, datos:");
+            Console.WriteLine("__________________________________");
+            var empleados = _repoEmpleado.ObtenerTodosLosEmpleados();
+            foreach(var empl in empleados){
+                Console.WriteLine("ID: " + empl.Id);
+                Console.WriteLine("Sueldo: " + empl.SueldoBruto);
+                var persona = _repoPersona.ObtenerPersona(empl.PersonaId);
+                Console.WriteLine("Nombre: " + persona.Nombre);
+                Console.WriteLine("Primer Apellido: " + persona.PrimerApellido);
+                Console.WriteLine("Segundo Apellido: " + persona.SegundoApellido);
+                Console.WriteLine("Documento: " + persona.Documento);
+                var empresa = _repoEmpresa.ObtenerEmpresa(persona.EmpresaId);
+                Console.WriteLine("Trabaja en la empresa: " + empresa.RazonSocial + "   NIT: " + empresa.Nit);
+                Console.WriteLine("__________________________________");
+            }
         }
         
         private static void pruebaCrudAgregar()
         {
             // crear la empresa
             var empresa = new Empresa{
-                Id = 1,
-                RazonSocial = "Empresa XYZ",
-                Nit = "123456-89",
-                Direccion = "CL 123 85 96"
+                RazonSocial = "Empresa ESTA SI",
+                Nit = "90909090",
+                Direccion = "CL 99 99 99"
             };
             Console.WriteLine("Agregar empresa");
-            _repoEmpresa.AgregarEmpresa(empresa);
+            var emp = _repoEmpresa.AgregarEmpresa(empresa);
 
             var persona1 = new Persona{
-                Id = 1,
-                Nombre = "Angela",
-                PrimerApellido = "Mayorga",
-                SegundoApellido = "Escobar",
-                FechaNacimiento = new DateTime(2001, 01, 01), 
-                Documento = "123456",
-                Empresa = empresa
+                Nombre = "JUAN",
+                PrimerApellido = "AAAA",
+                SegundoApellido = "BBBB",
+                FechaNacimiento = new DateTime(1999, 09, 09), 
+                Documento = "12121212",
+                EmpresaId = emp.Id
             };
             Console.WriteLine("Agregar persona1 para cliente");
-            _repoPersona.AgregarPersona(persona1);
+            var per1 = _repoPersona.AgregarPersona(persona1);
 
             var cliente = new Cliente{
-                Id = 1,
-                Telefono = "555-89999",
-                Persona = persona1
+                Telefono = "96369636",
+                PersonaId = per1.Id
             };
             Console.WriteLine("Agregar cliente");
             _repoCliente.AgregarCliente(cliente);
 
             var persona2 = new Persona{
-                Id = 2,
-                Nombre = "Carlos",
-                PrimerApellido = "Castaño",
-                SegundoApellido = "Hernandez",
-                FechaNacimiento = new DateTime(2005, 05, 05), 
-                Documento = "987654",
-                Empresa = empresa
+                Nombre = "ARTURO",
+                PrimerApellido = "CCCCC",
+                SegundoApellido = "VVVVV",
+                FechaNacimiento = new DateTime(2000, 07, 07), 
+                Documento = "45454545",
+                EmpresaId = empresa.Id
             };
             Console.WriteLine("Agregar persona 2 para empleado directivo");
-            _repoPersona.AgregarPersona(persona2);
+            var per2 = _repoPersona.AgregarPersona(persona2);
 
             var empleado1 = new Empleado{
-                Id = 1,
-                SueldoBruto = 1500000,
-                Persona = persona2
+                SueldoBruto = 2500000,
+                PersonaId = per2.Id
             };
             Console.WriteLine("Agregar empleado para directivo");
-            _repoEmpleado.AdicionarEmpleado(empleado1);
+            var emp1 = _repoEmpleado.AdicionarEmpleado(empleado1);
 
             var directivo = new Directivo{
-                Id = 1,
-                Categoria = "Jefe",
-                Empleado = empleado1
+                Categoria = "DIRECTOR",
+                EmpleadoId = emp1.Id
             };
             Console.WriteLine("Agregar directivo");
             _repoDirectivo.AgregarDirectivo(directivo);
 
             var persona3 = new Persona{
-                Id = 3,
-                Nombre = "Leidy",
-                PrimerApellido = "Rodas",
-                SegundoApellido = "Alcaraz",
-                FechaNacimiento = new DateTime(2004, 04, 04), 
-                Documento = "258147",
-                Empresa = empresa
+                Nombre = "LAURA",
+                PrimerApellido = "SSSSSS",
+                SegundoApellido = "DDDDDDDDD",
+                FechaNacimiento = new DateTime(2002, 05, 08), 
+                Documento = "6666667777",
+                EmpresaId = empresa.Id
             };
             Console.WriteLine("Agregar persona 3 para empleado");
-            _repoPersona.AgregarPersona(persona3);
+            var per3 = _repoPersona.AgregarPersona(persona3);
 
             var empleado2 = new Empleado{
-                Id = 2,
-                SueldoBruto = 2000000,
-                Persona = persona3
+                SueldoBruto = 1600000,
+                PersonaId = per3.Id
             };
             Console.WriteLine("Agregar empleado");
             _repoEmpleado.AdicionarEmpleado(empleado2);
