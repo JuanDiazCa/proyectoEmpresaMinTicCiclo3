@@ -1,0 +1,10 @@
+@page
+@model MyApp.Namespace.ListModel
+@{
+}
+<div>
+    @foreach(var cliente in Model.Clientes)
+    {
+        <p>@cliente</p>
+    }
+</div>
