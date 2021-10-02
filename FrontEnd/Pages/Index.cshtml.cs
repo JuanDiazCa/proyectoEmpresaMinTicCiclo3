@@ -5,12 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations;
 
 namespace FrontEnd.Pages
 {
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+
+        [BindProperty]
+        public Credencial Credencial {get; set;}
 
         public IndexModel(ILogger<IndexModel> logger)
         {
@@ -21,5 +25,21 @@ namespace FrontEnd.Pages
         {
 
         }
+
+        public void OnPost()
+        {
+            
+        }
     }
+
+    public class Credencial
+    {
+        [Required]
+        public string Usuario {get; set;}
+
+        [Required]
+        [DataType(DataType.Password)]
+        public string Clave {get; set;}
+    }
+
 }
