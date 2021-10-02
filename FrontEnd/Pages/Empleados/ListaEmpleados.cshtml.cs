@@ -44,5 +44,10 @@ namespace MyApp.Namespace
         public Persona GetPersona(int id){
             return _repoPersona.ObtenerPersona(id);
         }
+
+        public int CalcularEdad(DateTime fecha)
+        {
+            return DateTime.Today.AddTicks(-fecha.Ticks).Year - 1;
+        }
     }
 }

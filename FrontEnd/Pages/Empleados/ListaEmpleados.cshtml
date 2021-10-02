@@ -27,7 +27,7 @@
             <tr>
                 <td>@Model.GetPersona(empleado.PersonaId).Nombre</td>
                 <td>@Model.GetPersona(empleado.PersonaId).Documento</td>
-                <td>@Model.GetPersona(empleado.PersonaId).FechaNacimiento</td>
+                <td>@Model.CalcularEdad(Model.GetPersona(empleado.PersonaId).FechaNacimiento)</td>
                 <td>@empleado.SueldoBruto</td>
                 <td>@Model.GetNombreEmpresa(Model.GetPersona(empleado.PersonaId).EmpresaId)</td>
                 <td>
