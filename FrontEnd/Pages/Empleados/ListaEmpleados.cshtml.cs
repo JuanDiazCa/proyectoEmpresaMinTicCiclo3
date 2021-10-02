@@ -1,3 +1,5 @@
+using System.Net.Cache;
+using System.Net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,25 +15,30 @@ namespace MyApp.Namespace
     {
         private readonly RepositorioEmpleado _repoEmpleado;
         private readonly RepositorioPersona _repoPersona;
+        private readonly RepositorioEmpresa _repoEmpresa;
         public IEnumerable<Empleado> Empleados {get; set;}
-
-        public Boolean agregar {get; set;}
         public Persona Persona {get; set;}
 
-        public ListaEmpleadosModel(RepositorioEmpleado _repoEmpleado, RepositorioPersona _repoPersona)
+        public ListaEmpleadosModel(RepositorioEmpleado _repoEmpleado, RepositorioPersona _repoPersona, RepositorioEmpresa _repoEmpresa)
         {
             this._repoEmpleado = _repoEmpleado;
             this._repoPersona = _repoPersona;
-            agregar = false;
+            this._repoEmpresa = _repoEmpresa;
         }
         public void OnGet()
         {
             Empleados = _repoEmpleado.ObtenerTodosLosEmpleados();
         }
 
+        public void OnPost()
+        {
+            
+        }
+
         public string GetNombreEmpresa(int id)
         {
-            return "Prueba";
+            var empresa = _repoEmpresa.ObtenerEmpresa(id);
+            return empresa.RazonSocial;
         }
 
         public Persona GetPersona(int id){

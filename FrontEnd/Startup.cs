@@ -25,15 +25,14 @@ namespace FrontEnd
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            var _appContext = new Persistencia.AppRepositorios.AppContext();
             services.AddRazorPages();
-            services.AddSingleton<RepositorioCliente>(new RepositorioCliente(_appContext));
-            services.AddSingleton<RepositorioEmpresa>(new RepositorioEmpresa(_appContext));
-            services.AddSingleton<RepositorioPersona>(new RepositorioPersona(_appContext));
-            services.AddSingleton<RepositorioEmpleado>(new RepositorioEmpleado(_appContext));
-            services.AddSingleton<RepositorioDirectivo>(new RepositorioDirectivo(_appContext));
-            services.AddSingleton<RepositorioUsuario>(new RepositorioUsuario(_appContext));
-            services.AddSingleton<RepositorioRol>(new RepositorioRol(_appContext));
+            services.AddSingleton<RepositorioCliente>(new RepositorioCliente(new Persistencia.AppRepositorios.AppContext()));
+            services.AddSingleton<RepositorioEmpresa>(new RepositorioEmpresa(new Persistencia.AppRepositorios.AppContext()));
+            services.AddSingleton<RepositorioPersona>(new RepositorioPersona(new Persistencia.AppRepositorios.AppContext()));
+            services.AddSingleton<RepositorioEmpleado>(new RepositorioEmpleado(new Persistencia.AppRepositorios.AppContext()));
+            services.AddSingleton<RepositorioDirectivo>(new RepositorioDirectivo(new Persistencia.AppRepositorios.AppContext()));
+            services.AddSingleton<RepositorioUsuario>(new RepositorioUsuario(new Persistencia.AppRepositorios.AppContext()));
+            services.AddSingleton<RepositorioRol>(new RepositorioRol(new Persistencia.AppRepositorios.AppContext()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -3,15 +3,8 @@
 @{
     Layout = "_LayoutAdmin";
 }
-@if(Model.agregar){
-    <h1>FORMULARIO</h1>
-}
-
-<div style="padding-top: 10%;">
-    <!--<a class="btn btn-succes table-btn" asp-page="./Agregar">
-        <i class="fas fa-user-plus"></i>
-    </a>-->
-    <a class="btn btn-success table-btn" asp-action="@Model.agregar = true">
+<div style="padding-top: 2%;">
+    <a class="btn btn-success" asp-page="./Agregar">
         <i class="fas fa-user-plus"></i>
     </a>
 </div>
@@ -55,4 +48,6 @@
             </tr>
         }
     </table>
+    <br>
+    <h5>Existen @Model.Empleados.Count() Empleados en la base de datos</h5>
 </div>
