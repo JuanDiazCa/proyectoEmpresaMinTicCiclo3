@@ -466,3 +466,5 @@ $RECYCLE.BIN/
 /Servicios/bin/*
 /Servicios/obj/*
 
+.vscode/launch.json
+.vscode/tasks.json
