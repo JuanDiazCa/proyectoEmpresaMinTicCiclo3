@@ -1,0 +1,58 @@
+﻿@page
+@model MyApp.Namespace.ListaEmpleadosModel
+@{
+    Layout = "_LayoutAdmin";
+}
+@if(Model.agregar){
+    <h1>FORMULARIO</h1>
+}
+
+<div style="padding-top: 10%;">
+    <!--<a class="btn btn-succes table-btn" asp-page="./Agregar">
+        <i class="fas fa-user-plus"></i>
+    </a>-->
+    <a class="btn btn-success table-btn" asp-action="@Model.agregar = true">
+        <i class="fas fa-user-plus"></i>
+    </a>
+</div>
+<br>
+<br>
+<div class="text-center" >
+    <table class="table">
+        <tr>
+            <th>Nombre completo</th>
+            <th>Documento</th>
+            <th>Edad</th>
+            <th>Sueldo bruto</th>
+            <th>Empresa</th>
+            <th>Detalles</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+        </tr>
+        @foreach (var empleado in Model.Empleados)
+        {
+            <tr>
+                <td>@Model.GetPersona(empleado.PersonaId).Nombre</td>
+                <td>@Model.GetPersona(empleado.PersonaId).Documento</td>
+                <td>@Model.GetPersona(empleado.PersonaId).FechaNacimiento</td>
+                <td>@empleado.SueldoBruto</td>
+                <td>@Model.GetNombreEmpresa(Model.GetPersona(empleado.PersonaId).EmpresaId)</td>
+                <td>
+                    <a class="btn btn-primary table-btn" asp-page="./Detalles" asp-route-IdEmpleado="@empleado.Id">
+                        <i class="fas fa-info-circle"></i>
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-warning table-btn" asp-page="./Modificar" asp-route-IdEmpleado="@empleado.Id">
+                        <i class="fas fa-user-edit"></i>
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-danger table-btn" asp-page="./Eliminar" asp-route-IdEmpleado="@empleado.Id">
+                        <i class="fas fa-user-times"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
