@@ -23,38 +23,39 @@ namespace FrontEnd.Pages
         [BindProperty]
         public Empleado Empleado {get; set;}
         public IEnumerable<Empresa> Empresas {get; set;}
-        [BindProperty]
         public Empresa Empresa {get; set;}
         public bool EmpleadoEncontrado {get; set;}
         [Required]
         [BindProperty]
         public bool ConfirmarModificacion {get; set;}
+        [BindProperty]
+        public string RazonSocial {get; set;}
         public ModificarModel(RepositorioEmpleado _repoEmpleado, RepositorioPersona _repoPersona, RepositorioEmpresa _repoEmpresa, ILogger<ModificarModel> logger)
         {
             _logger = logger;
             this._repoEmpleado = _repoEmpleado;
             this._repoPersona = _repoPersona;
             this._repoEmpresa = _repoEmpresa;
-            EmpleadoEncontrado = false;
+            EmpleadoEncontrado = true;
         }
         public IActionResult OnGet(int idEmpleado)
         {
             Empleado = _repoEmpleado.ObtenerEmpleado(idEmpleado);
             if(Empleado==null){
                 EmpleadoEncontrado = false;
-                Console.WriteLine("Empleado no encontrado");
+                //Console.WriteLine("Empleado no encontrado");
                 return Page();
             }
             Persona = _repoPersona.ObtenerPersona(Empleado.PersonaId);
             if(Persona==null){
                 EmpleadoEncontrado = false;
-                Console.WriteLine("Persona no encontrado");
+                //Console.WriteLine("Persona no encontrado");
                 return Page();
             }
             Empresa = _repoEmpresa.ObtenerEmpresa(Persona.EmpresaId);
             if(Empresa==null){
                 EmpleadoEncontrado = false;
-                Console.WriteLine("Empresa no encontrado");
+                //Console.WriteLine("Empresa no encontrado");
                 return Page();
             }
             Empresas = _repoEmpresa.ObtenerEmpresas();
@@ -62,21 +63,18 @@ namespace FrontEnd.Pages
             return Page();
         }
 
-        public void OnPost()
+        public IActionResult OnPost(int idEmpleado)
         {
-
-        }
-
-        public string FormatearFecha(DateTime fecha)
-        {
-            //DateTime dt = DateTime.ParseExact(fecha.ToString(), )
-            return fecha.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
-            //return fecha.ToShortDateString();
-        }
-
-        public string FormatearSueldo()
-        {
-            return Empleado.SueldoBruto.ToString().Replace(',', '.');
+            if(ModelState.IsValid)
+            {
+                Empresa = _repoEmpresa.ObtenerEmpresaPorRazonSocial(RazonSocial);
+                Persona.Empresa = Empresa;
+                Persona = _repoPersona.ActualizarPersona(Persona);
+                Empleado.Persona = Persona;
+                Empleado = _repoEmpleado.ActualizarEmpleado(Empleado);
+                return RedirectToPage("./ListaEmpleados");
+            }
+            return OnGet(idEmpleado);
         }
     }
 }

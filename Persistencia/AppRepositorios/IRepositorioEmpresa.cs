@@ -12,6 +12,7 @@ namespace Persistencia.AppRepositorios
         void EliminarEmpresa(int idEmpresa);
         Empresa ObtenerEmpresa(int idEmpresa);
         IEnumerable<Empresa> ObtenerEmpresas();
+        Empresa ObtenerEmpresaPorRazonSocial(string razon);
 
     }
 }

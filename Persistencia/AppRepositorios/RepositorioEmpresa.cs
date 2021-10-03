@@ -54,6 +54,13 @@ namespace Persistencia.AppRepositorios
             );
         }
 
+        public Empresa ObtenerEmpresaPorRazonSocial(string razon)
+        {
+            return appContext.Empresas.FirstOrDefault(
+                e => e.RazonSocial == razon
+            );
+        }
+
         public IEnumerable<Empresa> ObtenerEmpresas()
         {
             return appContext.Empresas;
