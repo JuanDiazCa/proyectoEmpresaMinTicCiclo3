@@ -3,7 +3,11 @@
 @{
     Layout = "_LayoutAdmin";
 }
-<div style="padding-top: 2%;">
+<div class="text-center" style="padding-top: 2%;">
+    <h2>Gestion de empleados</h2>
+</div>
+<br>
+<div>
     <a class="btn btn-success" asp-page="./Agregar">
         <i class="fas fa-user-plus"></i>
     </a>
@@ -25,7 +29,7 @@
         @foreach (var empleado in Model.Empleados)
         {
             <tr>
-                <td>@Model.GetPersona(empleado.PersonaId).Nombre</td>
+                <td>@Model.GetPersona(empleado.PersonaId).Nombre @Model.GetPersona(empleado.PersonaId).PrimerApellido @Model.GetPersona(empleado.PersonaId).SegundoApellido</td>
                 <td>@Model.GetPersona(empleado.PersonaId).Documento</td>
                 <td>@Model.CalcularEdad(Model.GetPersona(empleado.PersonaId).FechaNacimiento)</td>
                 <td>@empleado.SueldoBruto</td>

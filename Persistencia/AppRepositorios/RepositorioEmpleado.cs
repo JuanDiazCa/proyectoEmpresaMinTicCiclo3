@@ -11,7 +11,7 @@ namespace Persistencia.AppRepositorios
         private readonly AppContext _appContext;
 
         public RepositorioEmpleado(AppContext appContext){
-            _appContext = appContext;
+            this._appContext = appContext;
         }
         public Empleado AdicionarEmpleado(Empleado empleado){
             var nuevoEmpleado = _appContext.Add(empleado);
@@ -48,6 +48,10 @@ namespace Persistencia.AppRepositorios
         public Empleado BuscarEmpleadoApellido(string apellidoEmpleado){
             return _appContext.Empleados.FirstOrDefault(
                 e=>e.Persona.PrimerApellido == apellidoEmpleado);
+        }
+        public Empleado ObtenerEmpleado(int idEmpleado)
+        {
+            return _appContext.Empleados.FirstOrDefault(e => e.Id == idEmpleado);
         }
         public IEnumerable<Empleado> ObtenerTodosLosEmpleados(){
             return _appContext.Empleados;

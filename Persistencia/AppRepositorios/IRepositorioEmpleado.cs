@@ -14,5 +14,6 @@ namespace Persistencia.AppRepositorios
          Empleado BuscarEmpleadoDocumento(string documentoEmpleado);
          Empleado BuscarEmpleadoNombre(string nombreEmpleado);
          Empleado BuscarEmpleadoApellido(string apellidoEmpleado);
+        Empleado ObtenerEmpleado(int id);
     }
 }

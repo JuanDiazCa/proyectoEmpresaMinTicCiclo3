@@ -3,4 +3,57 @@
 @{
     Layout = "_LayoutAdmin";
 }
-<h1>Detalles de empleado</h1>
+<div class="text-center" style="padding-top: 2%;">
+    <h2>Detalles de empleado</h2>
+</div>
+<br>
+<div class="container border text-center">
+    <table class="table">
+        <tr>
+            <th colspan="2">
+                Datos del empleado
+            </th>
+        </tr>
+        <tr>
+            <th>Documento:</th>
+            <td>@Model.Persona.Documento</td>
+        </tr>
+        <tr>
+            <th>Nombre:</th>
+            <td>@Model.Persona.Nombre</td>
+        </tr>
+        <tr>
+            <th>Primer apellido:</th>
+            <td>@Model.Persona.PrimerApellido</td>
+        </tr>
+        <tr>
+            <th>Segundo apellido:</th>
+            <td>@Model.Persona.SegundoApellido</td>
+        </tr>
+        <tr>
+            <th>Fecha de nacimiento:</th>
+            <td>@Model.Persona.FechaNacimiento</td>
+        </tr>
+        <tr>
+            <th>Edad:</th>
+            <td>@Model.CalcularEdad(Model.Persona.FechaNacimiento)</td>
+        </tr>
+        <tr>
+            <th>Sueldo bruto:</th>
+            <td>@Model.Empleado.SueldoBruto</td>
+        </tr>
+        <tr>
+            <th>Empresa donde trabaja:</th>
+            <td>@Model.Empresa.RazonSocial</td>
+        </tr>
+        <tr>
+            <th>Nit de la empresa:</th>
+            <td>@Model.Empresa.Nit</td>
+        </tr>
+    </table>
+    <div>
+        <a class="btn btn-primary table-btn" asp-page="./ListaEmpleados">
+            Volver
+        </a>
+    </div>
+</div>
