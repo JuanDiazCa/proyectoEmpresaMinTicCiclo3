@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Dominio.Entidades;
 using Persistencia.AppRepositorios;
 
-namespace MyApp.Namespace
+namespace FrontEnd.Pages
 {
     public class DetallesModel : PageModel
     {
@@ -17,30 +17,33 @@ namespace MyApp.Namespace
         public Persona Persona {get; set;}
         public Empleado Empleado {get; set;}
         public Empresa Empresa {get; set;}
+        public bool EmpleadoEncontrado {get; set;}
 
         public DetallesModel(RepositorioEmpleado _repoEmpleado, RepositorioPersona _repoPersona, RepositorioEmpresa _repoEmpresa)
         {
             this._repoEmpleado = _repoEmpleado;
             this._repoPersona = _repoPersona;
             this._repoEmpresa = _repoEmpresa;
+            EmpleadoEncontrado = false;
         }
         public IActionResult OnGet(int idEmpleado)
         {
             Empleado = _repoEmpleado.ObtenerEmpleado(idEmpleado);
             if(Empleado==null){
-                Console.WriteLine("Empleado no encontrado");
-                return RedirectToPage("../Admin");
+                EmpleadoEncontrado = false;
+                return Page();
             }
             Persona = _repoPersona.ObtenerPersona(Empleado.PersonaId);
             if(Persona==null){
-                Console.WriteLine("Persona no encontrada");
-                return RedirectToPage("../Admin");
+                EmpleadoEncontrado = false;
+                return Page();
             }
             Empresa = _repoEmpresa.ObtenerEmpresa(Persona.EmpresaId);
             if(Empresa==null){
-                Console.WriteLine("Persona no encontrada");
-                return RedirectToPage("../Admin");
+                EmpleadoEncontrado = false;
+                return Page();
             }
+            EmpleadoEncontrado = true;
             return Page();
         }
 

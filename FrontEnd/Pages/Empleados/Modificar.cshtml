@@ -1,6 +1,102 @@
 ﻿@page
-@model MyApp.Namespace.ModificarModel
+@model FrontEnd.Pages.ModificarModel
 @{
     Layout = "_LayoutAdmin";
 }
-<h1>Modificar de empleado</h1>
+<div class="text-center" style="padding-top: 2%;">
+    <h2>Detalles de empleado</h2>
+</div>
+<br>
+<div class="container border text-center">
+    @if (Model.EmpleadoEncontrado)
+    {
+        <form method="post">
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <input type="hidden" asp-for="Persona.Id">
+            <input type="hidden" asp-for="Empresa.Id">
+            <input type="hidden" asp-for="Empleado.Id">
+            <input type="hidden" asp-for="Persona.EmpresaId">
+            <input type="hidden" asp-for="Persona.Id">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label asp-for="Persona.Nombre">Nombre</label>
+                    <input asp-for="Persona.Nombre"class="form-control" placeholder="Nombre del empleado">
+                    <span class="text-danger" asp-validation-for="Persona.Nombre" style="width: 100%;"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Persona.PrimerApellido">Primer apellido</label>
+                    <input asp-for="Persona.PrimerApellido" class="form-control" placeholder="Primer apellido">
+                    <span class="text-danger" asp-validation-for="Persona.PrimerApellido" style="width: 100%;"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Persona.SegundoApellido">Segundo apellido</label>
+                    <input asp-for="Persona.SegundoApellido" class="form-control" placeholder="Segundo apellido">
+                    <span class="text-danger" asp-validation-for="Persona.SegundoApellido" style="width: 100%;"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label asp-for="Persona.Documento">Documento</label>
+                    <input asp-for="Persona.Documento" class="form-control" placeholder="Documento">
+                    <span class="text-danger" asp-validation-for="Persona.Documento" style="width: 100%;"></span>
+                </div>
+                <div class="md-form col-md-4 md-outline input-with-post-icon datepicker">
+                    <label asp-for="Persona.FechaNacimiento">Fecha de nacimiento</label>
+                    <input asp-for="Persona.FechaNacimiento" placeholder="Selecciona la fecha de nacimiento" class="form-control" max="@Model.FormatearFecha(System.DateTime.Now)">
+                    <span class="text-danger" asp-validation-for="Persona.FechaNacimiento" style="width: 100%;"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Empleado.SueldoBruto">Sueldo bruto</label>
+                    <input asp-for="Empleado.SueldoBruto"class="form-control" placeholder="Sueldo bruto">
+                    <span class="text-danger" asp-validation-for="Empleado.SueldoBruto" style="width: 100%;"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label asp-for="Empresa.RazonSocial">Empresa donde trabaja</label>
+                    <select asp-for="Empresa.RazonSocial" class="form-control">
+                        <option selected>@Model.Empresa.RazonSocial</option>
+                        @foreach (var empresa in Model.Empresas)
+                        {
+                            @if(Model.Empresa.RazonSocial != empresa.RazonSocial)
+                            {
+                                <option>@empresa.RazonSocial</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input asp-for="ConfirmarModificacion" class="form-check-input">
+                    <span class="text-danger" asp-validation-for="ConfirmarModificacion" style="width: 100%;"></span>
+                    <br>
+                    <label class="form-check-label" asp-for="ConfirmarModificacion">
+                        ¿Confirma la modificación de los datos del empleado?
+                    </label>
+                </div>
+            </div>
+            <div class="alert alert-warning" role="alert">
+                Precaución: Esta acción altera los datos del empleado
+            </div>
+        <div>
+            <a class="btn btn-primary table-btn" asp-page="./ListaEmpleados">
+                Volver
+            </a>
+            <input type="submit" value="Modificar" class="btn btn-warning">
+        </div>
+        </form>
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            Empleado no encontrado
+        </div>
+        <div>
+            <a class="btn btn-primary table-btn" asp-page="./ListaEmpleados">
+                Volver
+            </a>
+        </div>
+    }
+
+</div>

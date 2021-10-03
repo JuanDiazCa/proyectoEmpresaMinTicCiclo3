@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Dominio.Entidades;
 using Persistencia.AppRepositorios;
 
-namespace MyApp.Namespace
+namespace FrontEnd.Pages
 {
     public class ListaEmpleadosModel : PageModel
     {
