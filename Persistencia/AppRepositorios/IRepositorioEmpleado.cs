@@ -9,7 +9,7 @@ namespace Persistencia.AppRepositorios
     {
         IEnumerable<Empleado> ObtenerTodosLosEmpleados();
          Empleado AdicionarEmpleado(Empleado empleado);
-         void EliminarEmpleado(string documentoEmpleado);
+         void EliminarEmpleado(int idEmpleado);
          Empleado ActualizarEmpleado(Empleado empleado);
          Empleado BuscarEmpleadoDocumento(string documentoEmpleado);
          Empleado BuscarEmpleadoNombre(string nombreEmpleado);

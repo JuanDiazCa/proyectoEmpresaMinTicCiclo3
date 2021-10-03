@@ -18,9 +18,9 @@ namespace Persistencia.AppRepositorios
             _appContext.SaveChanges();
             return nuevoEmpleado.Entity;
         }
-        public void EliminarEmpleado(string documentoEmpleado){
+        public void EliminarEmpleado(int idEmpleado){
             var empleadoEncontrado = _appContext.Empleados.FirstOrDefault(
-                e => e.Persona.Documento == documentoEmpleado);
+                e => e.Id == idEmpleado);
             if(empleadoEncontrado == null)    
             return;
             _appContext.Remove(empleadoEncontrado);

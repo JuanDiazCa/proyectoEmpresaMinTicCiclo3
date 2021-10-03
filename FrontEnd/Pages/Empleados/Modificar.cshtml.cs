@@ -7,14 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Dominio.Entidades;
 using Persistencia.AppRepositorios;
-using Microsoft.Extensions.Logging;
 using System.ComponentModel.DataAnnotations;
 
 namespace FrontEnd.Pages
 {
     public class ModificarModel : PageModel
     {
-        private readonly ILogger<ModificarModel> _logger;
         private readonly RepositorioEmpleado _repoEmpleado;
         private readonly RepositorioPersona _repoPersona;
         private readonly RepositorioEmpresa _repoEmpresa;
@@ -25,14 +23,10 @@ namespace FrontEnd.Pages
         public IEnumerable<Empresa> Empresas {get; set;}
         public Empresa Empresa {get; set;}
         public bool EmpleadoEncontrado {get; set;}
-        [Required]
-        [BindProperty]
-        public bool ConfirmarModificacion {get; set;}
         [BindProperty]
         public string RazonSocial {get; set;}
-        public ModificarModel(RepositorioEmpleado _repoEmpleado, RepositorioPersona _repoPersona, RepositorioEmpresa _repoEmpresa, ILogger<ModificarModel> logger)
+        public ModificarModel(RepositorioEmpleado _repoEmpleado, RepositorioPersona _repoPersona, RepositorioEmpresa _repoEmpresa)
         {
-            _logger = logger;
             this._repoEmpleado = _repoEmpleado;
             this._repoPersona = _repoPersona;
             this._repoEmpresa = _repoEmpresa;
