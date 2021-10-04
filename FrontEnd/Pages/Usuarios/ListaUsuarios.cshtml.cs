@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Dominio.Entidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Persistencia.AppRepositorios;
 
 namespace MyApp.Namespace
 {
@@ -12,18 +14,18 @@ namespace MyApp.Namespace
         private readonly RepositorioUsuario _repoUsuario;
         private readonly RepositorioPersona _repoPersona;
         private readonly RepositorioEmpresa _repoEmpresa;
-        public IEnumerable<Empleado> Empleados {get; set;}
+        public IEnumerable<Usuario> Usuarios {get; set;}
         public Persona Persona {get; set;}
 
-        public ListaEmpleadosModel(RepositorioEmpleado _repoEmpleado, RepositorioPersona _repoPersona, RepositorioEmpresa _repoEmpresa)
+        public ListaUsuariosModel(RepositorioUsuario _repoUsuario, RepositorioPersona _repoPersona, RepositorioEmpresa _repoEmpresa)
         {
-            this._repoEmpleado = _repoEmpleado;
+            this._repoUsuario = _repoUsuario;
             this._repoPersona = _repoPersona;
             this._repoEmpresa = _repoEmpresa;
         }
         public void OnGet()
         {
-            Empleados = _repoEmpleado.ObtenerTodosLosEmpleados();
+            Usuarios = _repoUsuario.ObtenerTodosLosUsuarios();
         }
 
         public void OnPost()
