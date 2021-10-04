@@ -35,6 +35,10 @@ namespace proyectoEmpresaMinTicCiclo3.FrontEnd.Pages
 
         public IActionResult OnPost()
         {
+            if(!ModelState.IsValid){
+
+                return Page();
+            }
             Empresa = _repoEmpresa.ActualizarEmpresa(Empresa);
             return RedirectToPage("./List");
         }
