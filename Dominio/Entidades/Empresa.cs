@@ -8,13 +8,13 @@ namespace Dominio.Entidades
     public class Empresa
     {
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Debe ingresar un valor válido.")]
         [StringLength(50)]
         public string RazonSocial { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Debe ingresar un valor válido.")]
         [StringLength(30)]
         public string Nit { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Debe ingresar un valor válido.")]
         [StringLength(50)]
         public string Direccion { get; set; }       
     }

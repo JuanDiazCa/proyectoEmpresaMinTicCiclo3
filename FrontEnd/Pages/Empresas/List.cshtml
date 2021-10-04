@@ -1,0 +1,81 @@
+﻿@page
+@model proyectoEmpresaMinTicCiclo3.FrontEnd.Pages.ListModel
+@{
+    Layout = "_LayoutAdmin";
+}
+<div class="container">
+    <header>
+        <div class="row">
+            <div class="col-5">
+
+            </div>
+            <div class="col-2">
+                <h2>Empresas</h2>
+            </div>
+            <div class="col-5">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-11">
+
+            </div>
+            <div class="col-1">
+                <div>
+                    <a class="btn btn-success" asp-page="./Create">
+                        <i class="fas fa-plus-circle"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="row">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nit</th>
+                        <th>Razón social</th>
+                        <th>Dirección</th>
+                        <th>Detalles</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var empresa in Model.Empresas)
+                {
+                    <tr>
+                        <td>@empresa.Nit</td>
+                        <td>@empresa.RazonSocial</td>
+                        <td>@empresa.Direccion</td>
+                        <td class="text-center">
+                            <a class="btn btn-secondary table-btn" asp-page="./Details" asp-route-empresaId="@empresa.Id">
+                                <i class="fas fa-search"></i>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a class="btn btn-primary table-btn" asp-page="./Edit" asp-route-empresaId="@empresa.Id">
+                                <i class="far fa-edit"></i>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a class="btn btn-danger table-btn" asp-page="./Delete" asp-route-empresaId="@empresa.Id">
+                                <i class="far fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer class="bg-light text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="text-center p-3">
+            <h5>Existe(n) @Model.Empresas.Count() empresa(s) en la base de datos.</h5>
+        </div>
+        <!-- Copyright -->
+    </footer>
+</div>
