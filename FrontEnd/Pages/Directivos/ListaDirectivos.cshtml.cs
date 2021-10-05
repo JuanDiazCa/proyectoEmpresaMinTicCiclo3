@@ -56,5 +56,10 @@ namespace FrontEnd.Pages
             return _repoDirectivo.ObtenerDirectivo(id);
         }
 
+        public int CalcularEdad(DateTime fecha)
+        {
+            return DateTime.Today.AddTicks(-fecha.Ticks).Year - 1;
+        }
+
     }
 }

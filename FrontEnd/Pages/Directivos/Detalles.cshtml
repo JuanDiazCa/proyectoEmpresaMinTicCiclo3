@@ -12,7 +12,7 @@
         <table class="table">
         <tr>
             <th colspan="2">
-                Datos del empleado
+                Datos del empleado directivo
             </th>
         </tr>
         <tr>
@@ -35,7 +35,10 @@
             <th>Fecha de nacimiento:</th>
             <td>@Model.Persona.FechaNacimiento</td>
         </tr>
-        
+        <tr>
+            <th>Sueldo:</th>
+            <td>@Model.Empleado.SueldoBruto</td>
+        </tr>
         <tr>
             <th>Categoria:</th>
             <td>@Model.Directivo.Categoria</td>
@@ -59,7 +62,7 @@
         <br>
     }
     <div>
-        <a class="btn btn-primary table-btn" asp-page="./ListaEmpleados">
+        <a class="btn btn-primary table-btn" asp-page="./ListaDirectivos">
             Volver
         </a>
     </div>

@@ -32,28 +32,24 @@ namespace FrontEnd.Pages
         }
         public IActionResult OnGet(int idDirectivo)
         {
-              Directivo= _repoDirectivo.ObtenerDirectivo(Directivo.EmpleadoId);
+            Directivo= _repoDirectivo.ObtenerDirectivo(idDirectivo);
             if(Directivo==null){
                 DirectivoEncontrado = false;
-                //Console.WriteLine("Empleado no encontrado");
                 return Page();
             }
-            Empleado = _repoEmpleado.ObtenerEmpleado(Empleado.PersonaId);
+            Empleado = _repoEmpleado.ObtenerEmpleado(Directivo.EmpleadoId);
             if(Empleado==null){
                 DirectivoEncontrado = false;
-                //Console.WriteLine("Empleado no encontrado");
                 return Page();
             }
             Persona = _repoPersona.ObtenerPersona(Empleado.PersonaId);
             if(Persona==null){
                 DirectivoEncontrado  = false;
-                //Console.WriteLine("Persona no encontrado");
                 return Page();
             }
             Empresa = _repoEmpresa.ObtenerEmpresa(Persona.EmpresaId);
             if(Empresa==null){
                 DirectivoEncontrado  = false;
-                //Console.WriteLine("Empresa no encontrado");
                 return Page();
             }
             DirectivoEncontrado= true;
@@ -63,9 +59,14 @@ namespace FrontEnd.Pages
 
         public IActionResult OnPost(int idDirectivo)
         {
-             Directivo= _repoDirectivo.ObtenerDirectivo(idDirectivo);
+            //Console.WriteLine("id directivo = "+idDirectivo);
+            int idEmpleado = _repoDirectivo.ObtenerDirectivo(idDirectivo).EmpleadoId;
+            //Console.WriteLine("id empleado = "+idEmpleado);
             _repoDirectivo.EliminarDirectivo(idDirectivo);
-            _repoEmpleado.EliminarEmpleado(Directivo.EmpleadoId);
+            int idPersona = _repoEmpleado.ObtenerEmpleado(idEmpleado).PersonaId;
+            //Console.WriteLine("id persona = "+idPersona);
+            _repoEmpleado.EliminarEmpleado(idEmpleado);
+            _repoPersona.EliminarPersona(idPersona);
             return RedirectToPage("./ListaDirectivos");
         }
 

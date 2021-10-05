@@ -22,10 +22,12 @@ namespace FrontEnd.Pages
         public Persona Persona {get; set;}
         [BindProperty]
         public Directivo Directivo {get;set;}
+        [BindProperty]
         public Empleado Empleado {get; set;}
         public IEnumerable<Empresa> Empresas {get; set;}
         public Empresa Empresa {get; set;}
         public bool DirectivoEncontrado {get; set;}
+        [Required]
         [BindProperty]
         public string RazonSocial {get; set;}
         
@@ -39,28 +41,24 @@ namespace FrontEnd.Pages
         }
         public IActionResult OnGet(int idDirectivo)
         {
-              Directivo= _repoDirectivo.ObtenerDirectivo(Directivo.EmpleadoId);
+            Directivo= _repoDirectivo.ObtenerDirectivo(idDirectivo);
             if(Directivo==null){
                 DirectivoEncontrado = false;
-                //Console.WriteLine("Empleado no encontrado");
                 return Page();
             }
-            Empleado = _repoEmpleado.ObtenerEmpleado(Empleado.PersonaId);
+            Empleado = _repoEmpleado.ObtenerEmpleado(Directivo.EmpleadoId);
             if(Empleado==null){
                 DirectivoEncontrado = false;
-                //Console.WriteLine("Empleado no encontrado");
                 return Page();
             }
             Persona = _repoPersona.ObtenerPersona(Empleado.PersonaId);
             if(Persona==null){
                 DirectivoEncontrado  = false;
-                //Console.WriteLine("Persona no encontrado");
                 return Page();
             }
             Empresa = _repoEmpresa.ObtenerEmpresa(Persona.EmpresaId);
             if(Empresa==null){
                 DirectivoEncontrado  = false;
-                //Console.WriteLine("Empresa no encontrado");
                 return Page();
             }
             Empresas = _repoEmpresa.ObtenerEmpresas();
@@ -72,14 +70,13 @@ namespace FrontEnd.Pages
         {
             if(ModelState.IsValid)
             {
-                
                 Empresa = _repoEmpresa.ObtenerEmpresaPorRazonSocial(RazonSocial);
-                Persona.EmpresaId = Empresa.Id;
-                Persona = _repoPersona.AgregarPersona(Persona);
-                Empleado.PersonaId = Persona.Id;
-                Empleado = _repoEmpleado.AdicionarEmpleado(Empleado);
-                Directivo.EmpleadoId = Empleado.Id;
-                Directivo = _repoDirectivo.AgregarDirectivo(Directivo);
+                Persona.Empresa = Empresa;
+                Persona = _repoPersona.ActualizarPersona(Persona);
+                Empleado.Persona = Persona;
+                Empleado = _repoEmpleado.ActualizarEmpleado(Empleado);
+                Directivo.Empleado = Empleado;
+                Directivo = _repoDirectivo.ActualizarDirectivo(Directivo);
                 return RedirectToPage("./ListaDirectivos");
             }
             return OnGet(idDirectivo);

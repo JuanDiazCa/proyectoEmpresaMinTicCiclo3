@@ -13,7 +13,7 @@ namespace FrontEnd.Pages
 {
     public class AddModel : PageModel
     {
-         private readonly RepositorioEmpleado _repoEmpleado;
+        private readonly RepositorioEmpleado _repoEmpleado;
         private readonly RepositorioPersona _repoPersona;
         private readonly RepositorioEmpresa _repoEmpresa;
         private readonly RepositorioDirectivo _repoDirectivo;
@@ -21,6 +21,7 @@ namespace FrontEnd.Pages
         public Persona Persona {get; set;}
         [BindProperty]
         public Directivo Directivo {get; set;}
+        [BindProperty]
         public Empleado Empleado{get; set;}
         public IEnumerable<Empresa> Empresas {get; set;}
         public Empresa Empresa {get; set;}

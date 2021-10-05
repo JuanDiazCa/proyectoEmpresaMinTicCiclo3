@@ -15,8 +15,10 @@
             <input type="hidden" asp-for="Persona.Id">
             <input type="hidden" asp-for="Empresa.Id">
             <input type="hidden" asp-for="Empleado.Id">
+            <input type="hidden" asp-for="Directivo.Id">
             <input type="hidden" asp-for="Persona.EmpresaId">
-            <input type="hidden" asp-for="Persona.Id">
+            <input type="hidden" asp-for="Empleado.PersonaId">
+            <input type="hidden" asp-for="Directivo.EmpleadoId">
             <input type="hidden" asp-for="Empresas">
             <div class="form-row">
                 <div class="form-group col-md-4">
@@ -54,6 +56,11 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
+                    <label asp-for="Empleado.SueldoBruto">Sueldo bruto</label>
+                    <input asp-for="Empleado.SueldoBruto"class="form-control" placeholder="Sueldo bruto">
+                    <span class="text-danger" asp-validation-for="Empleado.SueldoBruto" style="width: 100%;"></span>
+                </div>
+                <div class="form-group col-md-4">
                     <label asp-for="RazonSocial">Empresa donde trabaja</label>
                     <select asp-for="RazonSocial" class="form-control">
                         <option selected>@Model.Empresa.RazonSocial</option>
@@ -71,7 +78,7 @@
                 Precaución: Esta acción altera los datos del empleado
             </div>
         <div>
-            <a class="btn btn-primary table-btn" asp-page="./ListaEmpleados">
+            <a class="btn btn-primary table-btn" asp-page="./ListaDirectivos">
                 Volver
             </a>
             <input type="submit" value="Modificar" class="btn btn-warning">
@@ -84,7 +91,7 @@
             Directivo no encontrado
         </div>
         <div>
-            <a class="btn btn-primary table-btn" asp-page="./ListaEmpleados">
+            <a class="btn btn-primary table-btn" asp-page="./ListaDirectivos">
                 Volver
             </a>
         </div>

@@ -37,6 +37,11 @@ namespace FrontEnd.Pages
                 DirectivoEncontrado = false;
                 return Page();
             }
+            Empleado = _repoEmpleado.ObtenerEmpleado(Directivo.EmpleadoId);
+            if(Empleado==null){
+                DirectivoEncontrado = false;
+                return Page();
+            }
             Persona = _repoPersona.ObtenerPersona(Empleado.PersonaId);
             if(Persona==null){
                 DirectivoEncontrado  = false;
@@ -47,12 +52,7 @@ namespace FrontEnd.Pages
                 DirectivoEncontrado = false;
                 return Page();
             }
-             Empleado = _repoEmpleado.ObtenerEmpleado(Empleado.PersonaId);
-            if(Empleado==null){
-                DirectivoEncontrado = false;
-                return Page();
-            }
-           DirectivoEncontrado  = true;
+            DirectivoEncontrado  = true;
             return Page();
         }
 

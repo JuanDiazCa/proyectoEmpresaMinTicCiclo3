@@ -36,6 +36,10 @@
             <td>@Model.Persona.FechaNacimiento</td>
         </tr>
         <tr>
+            <th>Sueldo:</th>
+            <td>@Model.Empleado.SueldoBruto</td>
+        </tr>
+        <tr>
             <th>Categoria:</th>
             <td>@Model.Directivo.Categoria</td>
         </tr>
@@ -48,25 +52,29 @@
             <td>@Model.Empresa.Nit</td>
         </tr>
     </table>
-    }
-    else{
-        <div class="alert alert-danger" role="alert">
-            No se encontro ese empleado
-        </div>
-        <br>
-        <br>
-        <br>
-    }
     <div class="alert alert-warning" role="alert">
-        Precaución: Eliminar el registro del empleado es una accion permanente<br>¿Desea eliminar el registro del directivo?
+        Precaución: Eliminar el registro del empleado directivo es una accion permanente<br>¿Desea eliminar el registro del directivo?
     </div>
     <form method="post">
         <div>
-        <a class="btn btn-primary table-btn" asp-page="./ListaEmpleados">
+        <a class="btn btn-primary table-btn" asp-page="./ListaDirectivos">
             Cancelar
         </a>
         <input type="submit" value="Eliminar" class="btn btn-danger">
     </div>
     </form>
-    
+    }
+    else{
+        <div class="alert alert-danger" role="alert">
+            No se encontro ese empleado directivo
+        </div>
+        <br>
+        <br>
+        <br>
+        <div>
+        <a class="btn btn-primary table-btn" asp-page="./ListaDirectivos">
+            Volver
+        </a>
+        </div>
+    }
 </div>
