@@ -1,0 +1,53 @@
+﻿@page
+@model FrontEnd.Pages.ListaDirectivosModel
+@{
+    Layout = "_LayoutAdmin";
+}
+<div class="text-center" style="padding-top: 2%;">
+    <h2>Gestion de empleados Directivo</h2>
+</div>
+<br>
+<div>
+    <a class="btn btn-success" asp-page="./Agregar">
+        <i class="fas fa-user-plus"></i>
+    </a>
+</div>
+<br>
+<br>
+<div class="text-center" >
+    <table class="table">
+        <tr>
+            <th>Categoria</th>
+            <th>Detalles</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+        </tr>
+        @foreach (var directivo in Model.Directivos)
+        {
+            <tr>
+                <td>@Model.GetPersona(directivo.EmpleadoId).Nombre @Model.GetPersona(directivo.EmpleadoId).PrimerApellido @Model.GetPersona(directivo.EmpleadoId).SegundoApellido</td>
+                <td>@Model.GetPersona(directivo.EmpleadoId).Documento</td>
+                <td>@directivo.Categoria</td>
+                <td>@Model.GetNombreEmpresa(Model.GetPersona(directivo.EmpleadoId).EmpresaId)</td>
+                <td>@Model.GetEmpleado(Model.GetPersona(directivo.EmpleadoId).EmpleadoId)</td>
+                <td>
+                    <a class="btn btn-primary table-btn" asp-page="./Detalles" asp-route-IdDirectivo="@directivo.Id">
+                        <i class="fas fa-info-circle"></i>
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-warning table-btn" asp-page="./Modificar" asp-route-IdDirectivo="@directivo.Id">
+                        <i class="fas fa-user-edit"></i>
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-danger table-btn" asp-page="./Eliminar" asp-route-IdDirectivo="@directivo.Id">
+                        <i class="fas fa-user-times"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
+    <br>
+    <h5>Existen @Model.Directivos.Count() Directivos en la base de datos</h5>
+</div>

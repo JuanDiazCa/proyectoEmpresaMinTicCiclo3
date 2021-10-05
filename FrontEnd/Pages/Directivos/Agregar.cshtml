@@ -1,0 +1,35 @@
+﻿@page
+@model FrontEnd.Pages.AddModel
+@{
+    Layout = "_LayoutAdmin";
+}
+<div class="text-center" style="padding-top: 2%;">
+    <h2>Agregar Empleado</h2>
+</div>
+<br>
+<div class="container border text-center">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <input type="hidden" asp-for="Persona.Id">
+        <input type="hidden" asp-for="Empresa.Id">
+        <input type="hidden" asp-for="Empleado.Id">
+        <input type="hidden" asp-for="Persona.EmpresaId">
+        <input type="hidden" asp-for="Persona.Id">
+        <input type="hidden" asp-for="Empresas">
+
+        
+        <div class="form-group col-md-4">
+            <label asp-for="Directivo.Categoria">Categoria</label>
+            <input asp-for="Directivo.Categoria" class="form-control" placeholder="Categoria">
+            <span class="text-danger" asp-validation-for="Directivo.Categoria" style="width: 100%;"></span>
+        </div>
+        
+      
+        <div>
+            <a class="btn btn-primary table-btn" asp-page="./ListaDirectivos">
+                Volver
+            </a>
+            <input type="submit" value="Agregar" class="btn btn-success">
+        </div>
+    </form>
+</div>
