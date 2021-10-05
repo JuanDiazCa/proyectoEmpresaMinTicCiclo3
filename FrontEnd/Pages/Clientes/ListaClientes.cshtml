@@ -1,0 +1,58 @@
+﻿@page
+@model FrontEnd.Pages.ListaClientesModel
+@{
+    Layout = "_LayoutAdmin";
+}
+<div class="text-center" style="padding-top: 2%;">
+    <h2>Gestion de clientes</h2>
+</div>
+<br>
+<div>
+    <a class="btn btn-success" asp-page="./Agregar">
+        <i class="fas fa-user-plus"></i>
+    </a>
+</div>
+<br>
+<br>
+<div class="text-center" >
+    <table class="table">
+        <tr>
+            <th>Nombre completo</th>
+            <th>Documento</th>
+            <th>Edad</th>
+            <th>Sueldo bruto</th>
+            <th>Empresa</th>
+            <th>Detalles</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+        </tr>
+        @foreach (var cliente in Model.Clientes)
+        {
+            <tr>
+                <td>@Model.GetPersona(cliente.PersonaId).Nombre @Model.GetPersona(cliente.PersonaId).PrimerApellido @Model.GetPersona(cliente.PersonaId).SegundoApellido</td>
+                <td>@Model.GetPersona(cliente.PersonaId).Documento</td>
+                <td>@Model.CalcularEdad(Model.GetPersona(cliente.PersonaId).FechaNacimiento)</td>
+                <td>@cliente.Telefono</td>
+                <td>@Model.GetNombreEmpresa(Model.GetPersona(cliente.PersonaId).EmpresaId)</td>
+                <td>
+                    <a class="btn btn-primary table-btn" asp-page="./Detalles" asp-route-IdCliente="@cliente.Id">
+                        <i class="fas fa-info-circle"></i>
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-warning table-btn" asp-page="./Modificar" asp-route-IdCliente="@cliente.Id">
+                        <i class="fas fa-user-edit"></i>
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-danger table-btn" asp-page="./Eliminar" asp-route-IdCliente="@cliente.Id">
+                        <i class="fas fa-user-times"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
+    <br>
+    <h5>Existen @Model.Clientes.Count() Clientes en la base de datos</h5>
+</div>
+
