@@ -12,16 +12,13 @@ namespace MyApp.Namespace
     public class ListaUsuariosModel : PageModel
     {
         private readonly RepositorioUsuario _repoUsuario;
-        private readonly RepositorioPersona _repoPersona;
-        private readonly RepositorioEmpresa _repoEmpresa;
+        private readonly RepositorioRol _repoRol;
         public IEnumerable<Usuario> Usuarios {get; set;}
-        public Persona Persona {get; set;}
 
-        public ListaUsuariosModel(RepositorioUsuario _repoUsuario, RepositorioPersona _repoPersona, RepositorioEmpresa _repoEmpresa)
+        public ListaUsuariosModel(RepositorioUsuario _repoUsuario, RepositorioRol _repoRol)
         {
             this._repoUsuario = _repoUsuario;
-            this._repoPersona = _repoPersona;
-            this._repoEmpresa = _repoEmpresa;
+            this._repoRol = _repoRol;
         }
         public void OnGet()
         {
@@ -33,19 +30,9 @@ namespace MyApp.Namespace
             
         }
 
-        public string GetNombreEmpresa(int id)
-        {
-            var empresa = _repoEmpresa.ObtenerEmpresa(id);
-            return empresa.RazonSocial;
+        public Rol GetRol(int id){
+            return _repoRol.ObtenerRol(id);
         }
 
-        public Persona GetPersona(int id){
-            return _repoPersona.ObtenerPersona(id);
-        }
-
-        public int CalcularEdad(DateTime fecha)
-        {
-            return DateTime.Today.AddTicks(-fecha.Ticks).Year - 1;
-        }
     }
 }

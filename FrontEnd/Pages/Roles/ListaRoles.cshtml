@@ -1,0 +1,69 @@
+﻿@page
+@model FrontEnd.Pages.Roles.ListaRolesModel
+@{
+    Layout = "_LayoutAdminSistema";
+}
+<div class="text-center" style="padding-top: 2%;">
+    <h2>Gestion de Roles</h2>
+</div>
+<br>
+<div>
+    <a class="btn btn-success" asp-page="./AgregarSuper">Agregar super Admin
+        <i class="fas fa-user-plus"></i>
+    </a>
+         
+    <a class="btn btn-success" asp-page="./Agregar">Agregar Admin
+        <i class="fas fa-user-plus"></i>
+    </a>
+</div>
+<br>
+<br>
+<div class="text-center" >
+    <table class="table table-hover">
+        <tr>
+            <th>Nombre del Rol</th>
+            <th>Tipo de rol</th>
+            <th>Detalles</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+        </tr>
+        @foreach (var rol in Model.Roles)
+        {
+            <tr>
+                <td>@rol.Nombre</td>
+                @if(rol.EsSuperAdmin){
+                    <td>Administrador del sistema</td>
+                }else
+                {
+                    <td>Administrador operativo</td>
+                }
+                <td>
+                    <a class="btn btn-primary table-btn" asp-page="./Detalles" asp-route-IdRol="@rol.Id">
+                        <i class="fas fa-info-circle"></i>
+                    </a>
+                </td>
+                @if(rol.EsSuperAdmin){
+                    <td>
+                        <a class="btn btn-warning table-btn" asp-page="./ModificarSuper" asp-route-IdRol="@rol.Id">
+                            <i class="fas fa-user-edit"></i>
+                        </a>
+                    </td>
+                }else
+                {
+                    <td>
+                        <a class="btn btn-warning table-btn" asp-page="./Modificar" asp-route-IdRol="@rol.Id">
+                            <i class="fas fa-user-edit"></i>
+                        </a>
+                    </td>
+                }
+                <td>
+                    <a class="btn btn-danger table-btn" asp-page="./Eliminar" asp-route-IdRol="@rol.Id">
+                        <i class="fas fa-user-times"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
+    <br>
+    <h5>Existen @Model.Roles.Count() Roles en la base de datos</h5>
+</div>

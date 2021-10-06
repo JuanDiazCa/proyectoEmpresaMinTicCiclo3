@@ -1,4 +1,60 @@
 ﻿@page
 @model MyApp.Namespace.ListaUsuariosModel
 @{
+    Layout = "_LayoutAdminSistema";
 }
+<div class="text-center" style="padding-top: 2%;">
+    <h2>Gestion de usuarios</h2>
+</div>
+<br>
+<div>
+    <a class="btn btn-success" asp-page="./Agregar">
+        <i class="fas fa-user-plus"></i>
+    </a>
+</div>
+<br>
+<br>
+<div class="text-center" >
+    <table class="table table-hover">
+        <tr>
+            <th>Nombre de usuario</th>
+            <th>Correo electronico</th>
+            <th>Rol</th>
+            <th>Tipo de usuario</th>
+            <th>Detalles</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+        </tr>
+        @foreach (var usuario in Model.Usuarios)
+        {
+            <tr>
+                <td>@usuario.NombreUsuario</td>
+                <td>@usuario.Correo</td>
+                <td>@Model.GetRol(usuario.RolId).Nombre</td>
+                @if(Model.GetRol(usuario.RolId).EsSuperAdmin){
+                    <td>Administrador del sistema</td>
+                }else
+                {
+                    <td>Administrador operativo</td>
+                }
+                <td>
+                    <a class="btn btn-primary table-btn" asp-page="./Detalles" asp-route-IdUsuario="@usuario.Id">
+                        <i class="fas fa-info-circle"></i>
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-warning table-btn" asp-page="./Modificar" asp-route-IdUsuario="@usuario.Id">
+                        <i class="fas fa-user-edit"></i>
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-danger table-btn" asp-page="./Eliminar" asp-route-IdUsuario="@usuario.Id">
+                        <i class="fas fa-user-times"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
+    <br>
+    <h5>Existen @Model.Usuarios.Count() Usuarios en la base de datos</h5>
+</div>

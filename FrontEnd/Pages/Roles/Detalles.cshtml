@@ -1,5 +1,5 @@
 ﻿@page
-@model MyApp.Namespace.DetallesModel
+@model FrontEnd.Pages.Roles.DetallesModel
 @{
     Layout = "_LayoutAdminSistema";
 }
@@ -8,27 +8,19 @@
 </div>
 <br>
 <div class="container border text-center">
-    @if(Model.UsuarioEncontrado){
+    @if(Model.RolEncontrado){
         <table class="table">
         <tr>
             <th colspan="2">
-                Datos del usuario
+                Datos del Rol
             </th>
         </tr>
         <tr>
-            <th>Nombre de usuario:</th>
-            <td>@Model.Usuario.NombreUsuario</td>
-        </tr>
-        <tr>
-            <th>Correo electronico:</th>
-            <td>@Model.Usuario.Correo</td>
-        </tr>
-        <tr>
-            <th>Rol:</th>
+            <th>Nombre del rol:</th>
             <td>@Model.Rol.Nombre</td>
         </tr>
         <tr>
-            <th>Tipo de usuario:</th>
+            <th>Tipo de rol:</th>
             @if(Model.Rol.EsSuperAdmin)
             {
                 <td>Administrador del sistema</td>
@@ -41,7 +33,7 @@
         </tr>
         <tr>
             <th colspan="2">
-                Permisos
+                Permisos del rol
             </th>
         </tr>
         <tr>
@@ -92,14 +84,14 @@
     }
     else{
         <div class="alert alert-danger" role="alert">
-            No se encontro ese usuario
+            No se encontro ese rol
         </div>
         <br>
         <br>
         <br>
     }
     <div>
-        <a class="btn btn-primary table-btn" asp-page="./ListaUsuarios">
+        <a class="btn btn-primary table-btn" asp-page="./ListaRoles">
             Volver
         </a>
     </div>

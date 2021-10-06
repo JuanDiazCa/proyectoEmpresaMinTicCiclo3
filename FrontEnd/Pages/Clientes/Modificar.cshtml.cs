@@ -23,6 +23,8 @@ namespace FrontEnd.Pages
         public IEnumerable<Empresa> Empresas {get; set;}
         public Empresa Empresa {get; set;}
         public bool ClienteEncontrado {get; set;}
+        [Required(ErrorMessage = "La razon social es necesaria")]
+        [StringLength(50, ErrorMessage = "No puede tener mas de 50 caracteres")]
         [BindProperty]
         public string RazonSocial {get; set;}
         public ModificarModelCliente(RepositorioCliente _repoCliente, RepositorioPersona _repoPersona, RepositorioEmpresa _repoEmpresa)

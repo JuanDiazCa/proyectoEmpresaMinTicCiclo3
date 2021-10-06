@@ -12,7 +12,7 @@ namespace FrontEnd.Pages
 {
     public class AgregarModel : PageModel
     {
-         private readonly RepositorioEmpleado _repoEmpleado;
+        private readonly RepositorioEmpleado _repoEmpleado;
         private readonly RepositorioPersona _repoPersona;
         private readonly RepositorioEmpresa _repoEmpresa;
         [BindProperty]
