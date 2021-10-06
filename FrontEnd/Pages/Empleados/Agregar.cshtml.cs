@@ -8,7 +8,7 @@ using Dominio.Entidades;
 using Persistencia.AppRepositorios;
 using System.ComponentModel.DataAnnotations;
 
-namespace FrontEnd.Pages
+namespace FrontEnd.Pages.Empleados
 {
     public class AgregarModel : PageModel
     {
@@ -21,7 +21,8 @@ namespace FrontEnd.Pages
         public Empleado Empleado {get; set;}
         public IEnumerable<Empresa> Empresas {get; set;}
         public Empresa Empresa {get; set;}
-        [Required]
+        [Required(ErrorMessage = "La razon social es necesaria.")]
+        [StringLength(50, ErrorMessage = "No puede tener mas de 50 caracteres")]
         [BindProperty]
         public string RazonSocial {get; set;}
         public AgregarModel(RepositorioEmpleado _repoEmpleado, RepositorioPersona _repoPersona, RepositorioEmpresa _repoEmpresa)

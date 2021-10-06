@@ -1,5 +1,5 @@
 ﻿@page
-@model FrontEnd.Pages.ListaEmpleadosModel
+@model FrontEnd.Pages.Empleados.ListaEmpleadosModel
 @{
     Layout = "_LayoutAdmin";
 }
@@ -14,7 +14,7 @@
 </div>
 <br>
 <br>
-<div class="text-center" >
+<div class="text-center">
     <table class="table table-hover">
         <tr>
             <th>Nombre completo</th>
@@ -28,30 +28,34 @@
         </tr>
         @foreach (var empleado in Model.Empleados)
         {
-            <tr>
-                <td>@Model.GetPersona(empleado.PersonaId).Nombre @Model.GetPersona(empleado.PersonaId).PrimerApellido @Model.GetPersona(empleado.PersonaId).SegundoApellido</td>
-                <td>@Model.GetPersona(empleado.PersonaId).Documento</td>
-                <td>@Model.CalcularEdad(Model.GetPersona(empleado.PersonaId).FechaNacimiento)</td>
-                <td>@empleado.SueldoBruto</td>
-                <td>@Model.GetNombreEmpresa(Model.GetPersona(empleado.PersonaId).EmpresaId)</td>
-                <td>
-                    <a class="btn btn-primary table-btn" asp-page="./Detalles" asp-route-IdEmpleado="@empleado.Id">
-                        <i class="fas fa-info-circle"></i>
-                    </a>
-                </td>
-                <td>
-                    <a class="btn btn-warning table-btn" asp-page="./Modificar" asp-route-IdEmpleado="@empleado.Id">
-                        <i class="fas fa-user-edit"></i>
-                    </a>
-                </td>
-                <td>
-                    <a class="btn btn-danger table-btn" asp-page="./Eliminar" asp-route-IdEmpleado="@empleado.Id">
-                        <i class="fas fa-user-times"></i>
-                    </a>
-                </td>
-            </tr>
+            @if (!Model.esDirectivo(empleado.Id))
+            {
+                <tr>
+                    <td>@Model.GetPersona(empleado.PersonaId).Nombre @Model.GetPersona(empleado.PersonaId).PrimerApellido
+                        @Model.GetPersona(empleado.PersonaId).SegundoApellido</td>
+                    <td>@Model.GetPersona(empleado.PersonaId).Documento</td>
+                    <td>@Model.CalcularEdad(Model.GetPersona(empleado.PersonaId).FechaNacimiento)</td>
+                    <td>@empleado.SueldoBruto</td>
+                    <td>@Model.GetNombreEmpresa(Model.GetPersona(empleado.PersonaId).EmpresaId)</td>
+                    <td>
+                        <a class="btn btn-primary table-btn" asp-page="./Detalles" asp-route-IdEmpleado="@empleado.Id">
+                            <i class="fas fa-info-circle"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-warning table-btn" asp-page="./Modificar" asp-route-IdEmpleado="@empleado.Id">
+                            <i class="fas fa-user-edit"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger table-btn" asp-page="./Eliminar" asp-route-IdEmpleado="@empleado.Id">
+                            <i class="fas fa-user-times"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
         }
     </table>
     <br>
-    <h5>Existen @Model.Empleados.Count() Empleados en la base de datos</h5>
+    <h5>Existen @Model.cantidad Empleados en la base de datos</h5>
 </div>

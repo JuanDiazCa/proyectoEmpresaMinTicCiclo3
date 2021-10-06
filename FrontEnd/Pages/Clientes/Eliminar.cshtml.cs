@@ -8,7 +8,7 @@ using Dominio.Entidades;
 using Persistencia.AppRepositorios;
 using System.ComponentModel.DataAnnotations;
 
-namespace FrontEnd.Pages
+namespace FrontEnd.Pages.Clientes
 {
     public class EliminarModelCliente : PageModel
     {

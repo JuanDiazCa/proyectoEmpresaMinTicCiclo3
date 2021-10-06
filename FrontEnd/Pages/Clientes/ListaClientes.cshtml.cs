@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Dominio.Entidades;
 using Persistencia.AppRepositorios;
 
-namespace FrontEnd.Pages
+namespace FrontEnd.Pages.Clientes
 {
     public class ListaClientesModel : PageModel
     {

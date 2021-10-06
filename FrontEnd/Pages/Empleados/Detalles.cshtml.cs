@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Dominio.Entidades;
 using Persistencia.AppRepositorios;
 
-namespace FrontEnd.Pages
+namespace FrontEnd.Pages.Empleados
 {
     public class DetallesModel : PageModel
     {

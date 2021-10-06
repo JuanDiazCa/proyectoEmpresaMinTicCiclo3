@@ -10,7 +10,7 @@ using Dominio.Entidades;
 using Persistencia.AppRepositorios;
 using System.ComponentModel.DataAnnotations;
 
-namespace FrontEnd.Pages
+namespace FrontEnd.Pages.Directivos
 {
     public class EditModel : PageModel
     {
