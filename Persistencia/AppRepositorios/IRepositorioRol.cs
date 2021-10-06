@@ -9,6 +9,7 @@ namespace Persistencia.AppRepositorios
         Rol ActualizarRol(Rol rol);
         void EliminarRol(int idRol);
         Rol ObtenerRol(int idRol);
+        Rol ObtenerRolPorNombre(string nombreRol);
         IEnumerable<Rol> ObtenerTodosLosRoles();
     }
 }

@@ -33,7 +33,7 @@ namespace Persistencia.Migrations
                     Modificar = table.Column<bool>(type: "bit", nullable: false),
                     Consultar = table.Column<bool>(type: "bit", nullable: false),
                     Eliminar = table.Column<bool>(type: "bit", nullable: false),
-                    Estado = table.Column<bool>(type: "bit", nullable: false)
+                    EsSuperAdmin = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -51,7 +51,7 @@ namespace Persistencia.Migrations
                     SegundoApellido = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
                     FechaNacimiento = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Documento = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    EmpresaId = table.Column<int>(type: "int", nullable: true)
+                    EmpresaId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -61,7 +61,30 @@ namespace Persistencia.Migrations
                         column: x => x.EmpresaId,
                         principalTable: "Empresas",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Usuarios",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NombreUsuario = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
+                    Clave = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
+                    Correo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TokenRecuperacion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RolId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Usuarios", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Usuarios_Roles_RolId",
+                        column: x => x.RolId,
+                        principalTable: "Roles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -71,7 +94,7 @@ namespace Persistencia.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Telefono = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
-                    PersonaId = table.Column<int>(type: "int", nullable: true)
+                    PersonaId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -81,7 +104,7 @@ namespace Persistencia.Migrations
                         column: x => x.PersonaId,
                         principalTable: "Personas",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -91,7 +114,7 @@ namespace Persistencia.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SueldoBruto = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    PersonaId = table.Column<int>(type: "int", nullable: true)
+                    PersonaId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -101,35 +124,7 @@ namespace Persistencia.Migrations
                         column: x => x.PersonaId,
                         principalTable: "Personas",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Usuarios",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    usuario = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
-                    clave = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    RolId = table.Column<int>(type: "int", nullable: true),
-                    PersonaId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Usuarios", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Usuarios_Personas_PersonaId",
-                        column: x => x.PersonaId,
-                        principalTable: "Personas",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Usuarios_Roles_RolId",
-                        column: x => x.RolId,
-                        principalTable: "Roles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -139,7 +134,7 @@ namespace Persistencia.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Categoria = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    EmpleadoId = table.Column<int>(type: "int", nullable: true)
+                    EmpleadoId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -149,7 +144,7 @@ namespace Persistencia.Migrations
                         column: x => x.EmpleadoId,
                         principalTable: "Empleados",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -171,11 +166,6 @@ namespace Persistencia.Migrations
                 name: "IX_Personas_EmpresaId",
                 table: "Personas",
                 column: "EmpresaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Usuarios_PersonaId",
-                table: "Usuarios",
-                column: "PersonaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Usuarios_RolId",

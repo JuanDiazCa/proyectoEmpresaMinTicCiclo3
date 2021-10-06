@@ -12,7 +12,7 @@ namespace Persistencia.AppRepositorios
         public DbSet<Cliente> Clientes {get;set;}
         public DbSet<Empresa> Empresas {get;set;}
         public DbSet<Directivo> Directivos {get;set;}
-        private const string connectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog = EmpresaTeamDDesarroladores;Integrated Security = True";
+        private const string connectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog = BDEmpresaTeamDDesarroladores;Integrated Security = True";
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){
             if(!optionsBuilder.IsConfigured){
                 optionsBuilder

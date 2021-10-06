@@ -28,7 +28,7 @@ namespace Persistencia.AppRepositorios
                 rolEncontrado.Modificar = rol.Modificar;
                 rolEncontrado.Consultar = rol.Consultar;
                 rolEncontrado.Eliminar = rol.Eliminar;
-                rolEncontrado.Estado = rol.Estado;
+                rolEncontrado.EsSuperAdmin = rol.EsSuperAdmin;
                 appContext.SaveChanges();
             }
             return rolEncontrado;
@@ -50,5 +50,11 @@ namespace Persistencia.AppRepositorios
             return appContext.Roles;
         }
 
+        public Rol ObtenerRolPorNombre(string nombreRol)
+        {
+            return appContext.Roles.FirstOrDefault(
+                e => e.Nombre == nombreRol
+            );
+        }
     }
 }

@@ -10,7 +10,7 @@ using Persistencia.AppRepositorios;
 namespace Persistencia.Migrations
 {
     [DbContext(typeof(Persistencia.AppRepositorios.AppContext))]
-    [Migration("20210925022412_Entidades")]
+    [Migration("20211005173845_Entidades")]
     partial class Entidades
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,7 +28,7 @@ namespace Persistencia.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int?>("PersonaId")
+                    b.Property<int>("PersonaId")
                         .HasColumnType("int");
 
                     b.Property<string>("Telefono")
@@ -55,7 +55,7 @@ namespace Persistencia.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<int?>("EmpleadoId")
+                    b.Property<int>("EmpleadoId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -72,7 +72,7 @@ namespace Persistencia.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int?>("PersonaId")
+                    b.Property<int>("PersonaId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("SueldoBruto")
@@ -124,7 +124,7 @@ namespace Persistencia.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<int?>("EmpresaId")
+                    b.Property<int>("EmpresaId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("FechaNacimiento")
@@ -164,7 +164,7 @@ namespace Persistencia.Migrations
                     b.Property<bool>("Eliminar")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("Estado")
+                    b.Property<bool>("EsSuperAdmin")
                         .HasColumnType("bit");
 
                     b.Property<bool>("Ingresar")
@@ -190,25 +190,27 @@ namespace Persistencia.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int?>("PersonaId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("RolId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("clave")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("usuario")
+                    b.Property<string>("Clave")
                         .IsRequired()
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
-                    b.HasKey("Id");
+                    b.Property<string>("Correo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("PersonaId");
+                    b.Property<string>("NombreUsuario")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
+
+                    b.Property<int>("RolId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TokenRecuperacion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("RolId");
 
@@ -219,7 +221,9 @@ namespace Persistencia.Migrations
                 {
                     b.HasOne("Dominio.Entidades.Persona", "Persona")
                         .WithMany()
-                        .HasForeignKey("PersonaId");
+                        .HasForeignKey("PersonaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Persona");
                 });
@@ -228,7 +232,9 @@ namespace Persistencia.Migrations
                 {
                     b.HasOne("Dominio.Entidades.Empleado", "Empleado")
                         .WithMany()
-                        .HasForeignKey("EmpleadoId");
+                        .HasForeignKey("EmpleadoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Empleado");
                 });
@@ -237,7 +243,9 @@ namespace Persistencia.Migrations
                 {
                     b.HasOne("Dominio.Entidades.Persona", "Persona")
                         .WithMany()
-                        .HasForeignKey("PersonaId");
+                        .HasForeignKey("PersonaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Persona");
                 });
@@ -246,22 +254,20 @@ namespace Persistencia.Migrations
                 {
                     b.HasOne("Dominio.Entidades.Empresa", "Empresa")
                         .WithMany()
-                        .HasForeignKey("EmpresaId");
+                        .HasForeignKey("EmpresaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Empresa");
                 });
 
             modelBuilder.Entity("Dominio.Entidades.Usuario", b =>
                 {
-                    b.HasOne("Dominio.Entidades.Persona", "Persona")
-                        .WithMany()
-                        .HasForeignKey("PersonaId");
-
                     b.HasOne("Dominio.Entidades.Rol", "Rol")
                         .WithMany()
-                        .HasForeignKey("RolId");
-
-                    b.Navigation("Persona");
+                        .HasForeignKey("RolId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Rol");
                 });

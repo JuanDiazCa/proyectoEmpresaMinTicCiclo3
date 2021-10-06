@@ -15,26 +15,23 @@ namespace Persistencia.AppRepositorios
 
         public Usuario ActualizarUsuario(Usuario usuario)
         {
-            var usuario_agregar = appContext.Usuarios.Add(usuario);
-            appContext.SaveChanges();
-
-            return usuario_agregar.Entity;
+            var usuario_encontrado = appContext.Usuarios.FirstOrDefault(u => u.Id == usuario.Id);
+            if (usuario_encontrado != null)
+            {   
+                usuario_encontrado.NombreUsuario = usuario.NombreUsuario;
+                usuario_encontrado.Clave = usuario.Clave;
+                usuario_encontrado.Correo = usuario.Correo;
+                usuario_encontrado.Rol = usuario.Rol;
+                appContext.SaveChanges();
+            }
+            return usuario_encontrado;
         }
 
         public Usuario AgregarUsuario(Usuario usuario)
         {
-            var usuario_encontrado = appContext.Usuarios.FirstOrDefault(u => u.Id == usuario.Id);
-            if (usuario_encontrado != null)
-            {   
-                usuario_encontrado.usuario = usuario.usuario;
-                usuario_encontrado.clave = usuario.clave;
-                usuario_encontrado.Rol = usuario.Rol;
-                usuario_encontrado.Persona = usuario.Persona;
-
-                appContext.SaveChanges();
-            }
-
-            return usuario_encontrado;
+            var usuario_agregar = appContext.Usuarios.Add(usuario);
+            appContext.SaveChanges();
+            return usuario_agregar.Entity;  
         }
 
         public void EliminarUsuario(int idUsuario)
