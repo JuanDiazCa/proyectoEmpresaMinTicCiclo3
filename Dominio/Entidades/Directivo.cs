@@ -8,8 +8,8 @@ namespace Dominio.Entidades
     public class Directivo
     {
         public int Id {set; get;}
-        [Required]
-        [StringLength(30)]
+        [Required(ErrorMessage = "La categoria es necesaria")]
+        [StringLength(30, ErrorMessage = "No puede tener mas de 30 caracteres")]
         public string Categoria{get;set;}
         public int EmpleadoId { get; set; }
         public virtual Empleado Empleado {get; set;}

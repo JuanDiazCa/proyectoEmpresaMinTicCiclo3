@@ -8,8 +8,8 @@ namespace Dominio.Entidades
     public class Rol
     {
         public int Id {get; set;}
-        [Required]
-        [StringLength(30)]
+        [Required(ErrorMessage = "El nombre del rol es necesario")]
+        [StringLength(30, ErrorMessage = "Debe tener minimo 3 caracteres y maximo de 30", MinimumLength = 5)]
         public string Nombre {get; set;}
         [Required]
         public bool Ingresar {get; set;}
@@ -20,6 +20,6 @@ namespace Dominio.Entidades
         [Required]
         public bool Eliminar {get; set;}
         [Required]
-        public bool Estado {get; set;}
+        public bool EsSuperAdmin {get; set;}
     }
 }
