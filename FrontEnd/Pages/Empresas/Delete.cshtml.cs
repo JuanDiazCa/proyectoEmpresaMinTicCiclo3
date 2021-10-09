@@ -26,7 +26,9 @@ namespace proyectoEmpresaMinTicCiclo3.FrontEnd.Pages
                 return RedirectToPage("./NotFound");
             }
             else
+            {
                 return Page();
+            }
         }
 
         public IActionResult OnPost(int empresaId)

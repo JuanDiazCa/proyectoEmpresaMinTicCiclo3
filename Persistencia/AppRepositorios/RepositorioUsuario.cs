@@ -17,7 +17,7 @@ namespace Persistencia.AppRepositorios
         {
             var usuario_encontrado = appContext.Usuarios.FirstOrDefault(u => u.Id == usuario.Id);
             if (usuario_encontrado != null)
-            {   
+            {
                 usuario_encontrado.NombreUsuario = usuario.NombreUsuario;
                 usuario_encontrado.Clave = usuario.Clave;
                 usuario_encontrado.Correo = usuario.Correo;
@@ -31,7 +31,7 @@ namespace Persistencia.AppRepositorios
         {
             var usuario_agregar = appContext.Usuarios.Add(usuario);
             appContext.SaveChanges();
-            return usuario_agregar.Entity;  
+            return usuario_agregar.Entity;
         }
 
         public void EliminarUsuario(int idUsuario)

@@ -23,12 +23,10 @@ namespace FrontEnd.Pages
 
         public void OnGet()
         {
-
         }
 
         public void OnPost()
         {
-            
         }
     }
 
@@ -41,5 +39,4 @@ namespace FrontEnd.Pages
         [DataType(DataType.Password)]
         public string Clave {get; set;}
     }
-
 }

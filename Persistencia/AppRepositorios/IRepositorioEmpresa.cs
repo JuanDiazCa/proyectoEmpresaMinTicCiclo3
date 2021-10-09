@@ -13,6 +13,5 @@ namespace Persistencia.AppRepositorios
         Empresa ObtenerEmpresa(int idEmpresa);
         IEnumerable<Empresa> ObtenerEmpresas();
         Empresa ObtenerEmpresaPorRazonSocial(string razon);
-
     }
 }

@@ -21,7 +21,7 @@ namespace Persistencia.AppRepositorios
         public void EliminarEmpleado(int idEmpleado){
             var empleadoEncontrado = _appContext.Empleados.FirstOrDefault(
                 e => e.Id == idEmpleado);
-            if(empleadoEncontrado == null)    
+            if(empleadoEncontrado == null)
             return;
             _appContext.Remove(empleadoEncontrado);
             _appContext.SaveChanges();
@@ -35,7 +35,6 @@ namespace Persistencia.AppRepositorios
                 _appContext.SaveChanges();
             }
             return empleadoEncontrado;
-            
          }
         public Empleado BuscarEmpleadoDocumento(string documentoEmpleado){
             return _appContext.Empleados.FirstOrDefault(
@@ -70,4 +69,4 @@ namespace Persistencia.AppRepositorios
             return _appContext.Empleados.Where(e => e.Persona.PrimerApellido.Contains(apellidos)||e.Persona.SegundoApellido.Contains(apellidos)).ToList();
         }
     }
-} 
+}

@@ -17,10 +17,7 @@ namespace Persistencia.Migrations
                     Nit = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Direccion = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Empresas", x => x.Id);
-                });
+                constraints: table => table.PrimaryKey("PK_Empresas", x => x.Id));
 
             migrationBuilder.CreateTable(
                 name: "Roles",
@@ -35,10 +32,7 @@ namespace Persistencia.Migrations
                     Eliminar = table.Column<bool>(type: "bit", nullable: false),
                     EsSuperAdmin = table.Column<bool>(type: "bit", nullable: false)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Roles", x => x.Id);
-                });
+                constraints: table => table.PrimaryKey("PK_Roles", x => x.Id));
 
             migrationBuilder.CreateTable(
                 name: "Personas",

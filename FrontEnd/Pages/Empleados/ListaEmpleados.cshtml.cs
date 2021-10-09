@@ -20,7 +20,7 @@ namespace FrontEnd.Pages.Empleados
         public IEnumerable<Empleado> Empleados { get; set; }
         public IEnumerable<Directivo> Directivos { get; set; }
         public Persona Persona { get; set; }
-        public int cantidad { get; set; }
+        public int Cantidad { get; set; }
         [BindProperty]
         public string CriterioFiltro { get; set; }
         [BindProperty]
@@ -41,7 +41,7 @@ namespace FrontEnd.Pages.Empleados
             {
                 Empleados = _repoEmpleado.ObtenerTodosLosEmpleados();
                 Directivos = _repoDirectivo.ObtenerTodosLosDirectivos();
-                cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
+                Cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
                 return;
             }
             else
@@ -51,22 +51,22 @@ namespace FrontEnd.Pages.Empleados
                     case "Todos los registros":
                         Empleados = _repoEmpleado.ObtenerTodosLosEmpleados();
                         Directivos = _repoDirectivo.ObtenerTodosLosDirectivos();
-                        cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
+                        Cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
                         break;
                     case "Por documento":
                         Empleados = _repoEmpleado.ObtenerEmpleadosDocumento(TextoFiltro);
                         Directivos = _repoDirectivo.ObtenerTodosLosDirectivos();
-                        cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
+                        Cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
                         break;
                     case "Por nombre":
                         Empleados = _repoEmpleado.ObtenerEmpleadosNombre(TextoFiltro);
                         Directivos = _repoDirectivo.ObtenerTodosLosDirectivos();
-                        cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
+                        Cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
                         break;
                     case "Por apellidos":
                         Empleados = _repoEmpleado.ObtenerEmpleadosApellidos(TextoFiltro);
                         Directivos = _repoDirectivo.ObtenerTodosLosDirectivos();
-                        cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
+                        Cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
                         break;
                 }
             }
@@ -93,7 +93,7 @@ namespace FrontEnd.Pages.Empleados
             return DateTime.Today.AddTicks(-fecha.Ticks).Year - 1;
         }
 
-        public bool esDirectivo(int idEmpleado)
+        public bool EsDirectivo(int idEmpleado)
         {
             foreach (var dir in Directivos)
             {

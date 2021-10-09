@@ -35,7 +35,6 @@ namespace FrontEnd.Pages.Directivos
 
         public void OnPost()
         {
-            
         }
 
         public string GetNombreEmpresa(int id)
@@ -60,6 +59,5 @@ namespace FrontEnd.Pages.Directivos
         {
             return DateTime.Today.AddTicks(-fecha.Ticks).Year - 1;
         }
-
     }
 }

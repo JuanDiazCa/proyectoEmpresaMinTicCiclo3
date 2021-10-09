@@ -21,7 +21,7 @@ namespace MyApp.Namespace
         public IEnumerable<Rol> Roles {get; set;}
         [Required(ErrorMessage = "El rol del usuario es necesario")]
         [BindProperty]
-        public string nombreRol {get; set;}
+        public string NombreRol {get; set;}
         public bool UsuarioEncontrado {get; set;}
         public ModificarModel(RepositorioUsuario _repoUsuario, RepositorioRol _repoRol)
         {
@@ -50,7 +50,7 @@ namespace MyApp.Namespace
         {
             if(ModelState.IsValid)
             {
-                Rol = _repoRol.ObtenerRolPorNombre(nombreRol);
+                Rol = _repoRol.ObtenerRolPorNombre(NombreRol);
                 Usuario.Rol = Rol;
                 Usuario = _repoUsuario.ActualizarUsuario(Usuario);
                 return RedirectToPage("./ListaUsuarios");

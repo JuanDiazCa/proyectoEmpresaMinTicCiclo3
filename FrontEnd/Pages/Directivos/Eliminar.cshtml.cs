@@ -54,7 +54,6 @@ namespace FrontEnd.Pages.Directivos
             }
             DirectivoEncontrado= true;
             return Page();
-        
         }
 
         public IActionResult OnPost(int idDirectivo)
@@ -69,6 +68,5 @@ namespace FrontEnd.Pages.Directivos
             _repoPersona.EliminarPersona(idPersona);
             return RedirectToPage("./ListaDirectivos");
         }
-
     }
 }

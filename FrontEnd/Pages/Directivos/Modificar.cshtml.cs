@@ -30,7 +30,6 @@ namespace FrontEnd.Pages.Directivos
         [Required]
         [BindProperty]
         public string RazonSocial {get; set;}
-        
         public EditModel(RepositorioEmpleado _repoEmpleado, RepositorioPersona _repoPersona, RepositorioEmpresa _repoEmpresa, RepositorioDirectivo _repoDirectivo)
         {
             this._repoEmpleado = _repoEmpleado;

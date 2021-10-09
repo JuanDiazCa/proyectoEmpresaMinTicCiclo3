@@ -43,6 +43,5 @@ namespace MyApp.Namespace
             _repoUsuario.EliminarUsuario(idUsuario);
             return RedirectToPage("./ListaUsuarios");
         }
-
     }
 }

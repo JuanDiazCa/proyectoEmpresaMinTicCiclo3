@@ -6,14 +6,14 @@ using Dominio.Entidades;
 
 namespace Aplicacion
 {
-    class Program
+    internal static class Program
     {
-        private static IRepositorioEmpresa _repoEmpresa =  new RepositorioEmpresa(new Persistencia.AppRepositorios.AppContext());
-        private static IRepositorioPersona _repoPersona =  new RepositorioPersona(new Persistencia.AppRepositorios.AppContext());
-        private static IRepositorioCliente _repoCliente =  new RepositorioCliente(new Persistencia.AppRepositorios.AppContext());
-        private static IRepositorioEmpleado _repoEmpleado =  new RepositorioEmpleado(new Persistencia.AppRepositorios.AppContext());
-        private static IRepositorioDirectivo _repoDirectivo =  new RepositorioDirectivo(new Persistencia.AppRepositorios.AppContext());
-        static void Main(string[] args)
+        private static readonly IRepositorioEmpresa _repoEmpresa =  new RepositorioEmpresa(new Persistencia.AppRepositorios.AppContext());
+        private static readonly IRepositorioPersona _repoPersona =  new RepositorioPersona(new Persistencia.AppRepositorios.AppContext());
+        private static readonly IRepositorioCliente _repoCliente =  new RepositorioCliente(new Persistencia.AppRepositorios.AppContext());
+        private static readonly IRepositorioEmpleado _repoEmpleado =  new RepositorioEmpleado(new Persistencia.AppRepositorios.AppContext());
+        private static readonly IRepositorioDirectivo _repoDirectivo =  new RepositorioDirectivo(new Persistencia.AppRepositorios.AppContext());
+        private static void Main(string[] args)
         {
             Console.WriteLine("Hello Team D Desarroladores!");
             Console.WriteLine("PRUEBAS DE CRUD");
@@ -21,31 +21,20 @@ namespace Aplicacion
                 Descomentar el metodo segun la prueba que se quiera hacer
             **/
             //pruebaCrudAgregar();
-            pruebaCrudConsultar();
+            PruebaCrudConsultar();
             //pruebaCrudActualizar();
             //pruebaCrudEliminar();
+
         }
 
-        public static void pruebaCrudEliminar(){
+        public static void PruebaCrudEliminar(){
             Console.WriteLine("eliminar cliente id 2");
             _repoCliente.EliminarCliente(2);
             Console.WriteLine("eliminar persona id 2");
             _repoPersona.EliminarPersona(2);
-
         }
 
-        private static void pruebaCrudActualizar(){
-            Console.WriteLine("Actualizando empresa");
-            var empresaActualizada = new Empresa{
-                Id = 2,
-                RazonSocial = "Empresa ABC",
-                Nit = "999999999999",
-                Direccion = "CL 987 85 96"
-            };
-            _repoEmpresa.ActualizarEmpresa(empresaActualizada);
-        }
-
-        private static void pruebaCrudConsultar(){
+        public static void PruebaCrudConsultar(){
             Console.WriteLine("Consultar Empleados, datos:");
             Console.WriteLine("__________________________________");
             var empleados = _repoEmpleado.ObtenerTodosLosEmpleados();
@@ -62,8 +51,7 @@ namespace Aplicacion
                 Console.WriteLine("__________________________________");
             }
         }
-        
-        private static void pruebaCrudAgregar()
+        private static void PruebaCrudAgregar()
         {
             // crear la empresa
             var empresa = new Empresa{
@@ -78,7 +66,7 @@ namespace Aplicacion
                 Nombre = "JUAN",
                 PrimerApellido = "AAAA",
                 SegundoApellido = "BBBB",
-                FechaNacimiento = new DateTime(1999, 09, 09), 
+                FechaNacimiento = new DateTime(1999, 09, 09),
                 Documento = "12121212",
                 EmpresaId = emp.Id
             };
@@ -96,7 +84,7 @@ namespace Aplicacion
                 Nombre = "ARTURO",
                 PrimerApellido = "CCCCC",
                 SegundoApellido = "VVVVV",
-                FechaNacimiento = new DateTime(2000, 07, 07), 
+                FechaNacimiento = new DateTime(2000, 07, 07),
                 Documento = "45454545",
                 EmpresaId = empresa.Id
             };
@@ -121,7 +109,7 @@ namespace Aplicacion
                 Nombre = "LAURA",
                 PrimerApellido = "SSSSSS",
                 SegundoApellido = "DDDDDDDDD",
-                FechaNacimiento = new DateTime(2002, 05, 08), 
+                FechaNacimiento = new DateTime(2002, 05, 08),
                 Documento = "6666667777",
                 EmpresaId = empresa.Id
             };

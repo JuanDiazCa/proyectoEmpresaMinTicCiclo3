@@ -16,6 +16,6 @@ namespace Dominio.Entidades
         public string Nit { get; set; }
         [Required(ErrorMessage = "La direccion es necesaria.")]
         [StringLength(50, ErrorMessage = "No puede tener mas de 50 caracteres")]
-        public string Direccion { get; set; }       
+        public string Direccion { get; set; }
     }
 }

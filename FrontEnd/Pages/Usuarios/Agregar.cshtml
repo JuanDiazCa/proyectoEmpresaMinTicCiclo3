@@ -22,8 +22,8 @@
                 <span class="text-danger" asp-validation-for="Usuario.Correo" style="width: 100%;"></span>
             </div>
             <div class="form-group col-md-4">
-                <label asp-for="nombreRol">Elija el rol del usuario</label>
-                <select asp-for="nombreRol" class="form-control">
+                <label asp-for="NombreRol">Elija el rol del usuario</label>
+                <select asp-for="NombreRol" class="form-control">
                     <option selected>@Model.Rol.Nombre</option>
                     @foreach (var rol in Model.Roles)
                     {
@@ -33,7 +33,7 @@
                         }
                     }
                 </select>
-                <span class="text-danger" asp-validation-for="nombreRol" style="width: 100%;"></span>
+                <span class="text-danger" asp-validation-for="NombreRol" style="width: 100%;"></span>
             </div>
         </div>
         <div class="form-row">

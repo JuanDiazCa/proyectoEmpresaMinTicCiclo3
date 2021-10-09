@@ -21,7 +21,6 @@ namespace FrontEnd.Pages.Roles
             this._repoRol = _repoRol;
             RolEncontrado = false;
         }
-        
         public IActionResult OnGet(int IdRol)
         {
             Rol = _repoRol.ObtenerRol(IdRol);

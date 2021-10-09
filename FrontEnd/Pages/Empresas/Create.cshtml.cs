@@ -21,7 +21,6 @@ namespace proyectoEmpresaMinTicCiclo3.FrontEnd.Pages
         }
         public void OnGet()
         {
-            
         }
         public IActionResult OnPost()
         {

@@ -60,6 +60,5 @@ namespace FrontEnd.Pages.Clientes
             _repoPersona.EliminarPersona(Cliente.PersonaId);
             return RedirectToPage("./ListaClientes");
         }
-
     }
 }

@@ -31,7 +31,6 @@ namespace FrontEnd.Pages.Clientes
         }
 
         public void OnPost(){
-            
         }
 
         public string GetNombreEmpresa(int id){

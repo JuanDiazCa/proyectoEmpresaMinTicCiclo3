@@ -60,6 +60,5 @@ namespace FrontEnd.Pages.Empleados
             _repoPersona.EliminarPersona(Empleado.PersonaId);
             return RedirectToPage("./ListaEmpleados");
         }
-
     }
 }

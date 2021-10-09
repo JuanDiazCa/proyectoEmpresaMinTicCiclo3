@@ -55,7 +55,5 @@ namespace FrontEnd.Pages.Directivos
             DirectivoEncontrado  = true;
             return Page();
         }
-
-        
     }
 }

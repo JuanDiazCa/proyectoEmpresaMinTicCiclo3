@@ -58,7 +58,7 @@
         </tr>
         @foreach (var empleado in Model.Empleados)
         {
-            @if (!Model.esDirectivo(empleado.Id))
+            @if (!Model.EsDirectivo(empleado.Id))
             {
                 <tr>
                     <td>@Model.GetPersona(empleado.PersonaId).Nombre @Model.GetPersona(empleado.PersonaId).PrimerApellido
@@ -87,5 +87,5 @@
         }
     </table>
     <br>
-    <h5>Existen @Model.cantidad Empleados en la base de datos</h5>
+    <h5>Existen @Model.Cantidad Empleados en la base de datos</h5>
 </div>

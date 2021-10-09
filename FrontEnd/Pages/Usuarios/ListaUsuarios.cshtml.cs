@@ -49,12 +49,10 @@ namespace MyApp.Namespace
 
         public void OnPost()
         {
-            
         }
 
         public Rol GetRol(int id){
             return _repoRol.ObtenerRol(id);
         }
-
     }
 }

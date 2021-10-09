@@ -19,7 +19,6 @@ namespace FrontEnd.Pages.Roles
         {
             this._repoRol = _repoRol;
         }
-        
         public IActionResult OnGet()
         {
             Rol = new Rol();
