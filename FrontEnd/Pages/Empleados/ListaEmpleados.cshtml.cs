@@ -17,10 +17,14 @@ namespace FrontEnd.Pages.Empleados
         private readonly RepositorioPersona _repoPersona;
         private readonly RepositorioEmpresa _repoEmpresa;
         private readonly RepositorioDirectivo _repoDirectivo;
-        public IEnumerable<Empleado> Empleados {get; set;}
-        public IEnumerable<Directivo> Directivos {get; set;}
-        public Persona Persona {get; set;}
-        public int cantidad {get; set;}
+        public IEnumerable<Empleado> Empleados { get; set; }
+        public IEnumerable<Directivo> Directivos { get; set; }
+        public Persona Persona { get; set; }
+        public int cantidad { get; set; }
+        [BindProperty]
+        public string CriterioFiltro { get; set; }
+        [BindProperty]
+        public string TextoFiltro { get; set; }
 
         public ListaEmpleadosModel(RepositorioEmpleado _repoEmpleado, RepositorioPersona _repoPersona, RepositorioEmpresa _repoEmpresa, RepositorioDirectivo _repoDirectivo)
         {
@@ -29,17 +33,49 @@ namespace FrontEnd.Pages.Empleados
             this._repoEmpresa = _repoEmpresa;
             this._repoDirectivo = _repoDirectivo;
         }
-        public void OnGet()
+        public void OnGet(string CriterioFiltro, string TextoFiltro)
         {
-            Empleados = _repoEmpleado.ObtenerTodosLosEmpleados();
-            Directivos = _repoDirectivo.ObtenerTodosLosDirectivos();
-            cantidad = Math.Abs(Empleados.Count()-Directivos.Count());
+            //Console.WriteLine("Criterio: "+ CriterioFiltro);
+            //Console.WriteLine("Texto: "+ TextoFiltro);
+            if(String.IsNullOrEmpty(CriterioFiltro)||String.IsNullOrEmpty(TextoFiltro))
+            {
+                Empleados = _repoEmpleado.ObtenerTodosLosEmpleados();
+                Directivos = _repoDirectivo.ObtenerTodosLosDirectivos();
+                cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
+                return;
+            }
+            else
+            {
+                switch (CriterioFiltro)
+                {
+                    case "Todos los registros":
+                        Empleados = _repoEmpleado.ObtenerTodosLosEmpleados();
+                        Directivos = _repoDirectivo.ObtenerTodosLosDirectivos();
+                        cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
+                        break;
+                    case "Por documento":
+                        Empleados = _repoEmpleado.ObtenerEmpleadosDocumento(TextoFiltro);
+                        Directivos = _repoDirectivo.ObtenerTodosLosDirectivos();
+                        cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
+                        break;
+                    case "Por nombre":
+                        Empleados = _repoEmpleado.ObtenerEmpleadosNombre(TextoFiltro);
+                        Directivos = _repoDirectivo.ObtenerTodosLosDirectivos();
+                        cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
+                        break;
+                    case "Por apellidos":
+                        Empleados = _repoEmpleado.ObtenerEmpleadosApellidos(TextoFiltro);
+                        Directivos = _repoDirectivo.ObtenerTodosLosDirectivos();
+                        cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
+                        break;
+                }
+            }
         }
-
-        public void OnPost()
+//https://localhost:5001/Empleados/Post?CriterioFiltro=Por+documento&TextoFiltro=5555
+        /*public IActionResult OnPost(string CriterioFiltro, string TextoFiltro)
         {
             
-        }
+        }*/
 
         public string GetNombreEmpresa(int id)
         {
@@ -47,7 +83,8 @@ namespace FrontEnd.Pages.Empleados
             return empresa.RazonSocial;
         }
 
-        public Persona GetPersona(int id){
+        public Persona GetPersona(int id)
+        {
             return _repoPersona.ObtenerPersona(id);
         }
 
@@ -58,9 +95,9 @@ namespace FrontEnd.Pages.Empleados
 
         public bool esDirectivo(int idEmpleado)
         {
-            foreach(var dir in Directivos)
+            foreach (var dir in Directivos)
             {
-                if(dir.EmpleadoId==idEmpleado)
+                if (dir.EmpleadoId == idEmpleado)
                 {
                     return true;
                 }

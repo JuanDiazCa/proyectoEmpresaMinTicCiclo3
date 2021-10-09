@@ -15,5 +15,8 @@ namespace Persistencia.AppRepositorios
          Empleado BuscarEmpleadoNombre(string nombreEmpleado);
          Empleado BuscarEmpleadoApellido(string apellidoEmpleado);
         Empleado ObtenerEmpleado(int id);
+        IEnumerable<Empleado> ObtenerEmpleadosDocumento(string documento);
+        IEnumerable<Empleado> ObtenerEmpleadosNombre(string nombre);
+        IEnumerable<Empleado> ObtenerEmpleadosApellidos(string apellidos);
     }
 }

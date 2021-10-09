@@ -222,6 +222,7 @@
     background-color: rgb(240, 240, 240);
     border-radius: 10px;
     border:#25233f;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 .table th{
     background-color: #1d1b31;
@@ -230,12 +231,17 @@
 .home-section h2{
     font-weight: bolder;
     color: #1d1b31;
-    text-shadow: #7e7e7e;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 .home-section h5{
     font-weight: bolder;
     color: #1d1b31;
-    text-shadow: #7e7e7e;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+.home-section h3{
+  font-weight: bolder;
+  color: #1d1b31;
+  text-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 form{
     padding: 10px;
@@ -243,4 +249,62 @@ form{
 }
 form .btn{
     font-weight: bold;
+}
+.btn-primary{
+  background-color: #25233f;
+}
+.btn-primary:hover{
+  background-color: #3d3a68;
+}
+.home-section input{
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+.home-section select{
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+.home-section .border{
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+.contenedor-filtro{
+  background-color: rgb(240, 240, 240);
+}
+.boton-agregar{
+  height: 100%;
+  font-size: 200%;
+  align-items: center;
+  text-shadow: #7e7e7e;
+  box-shadow: #505050;
+}
+.contenedor-btn-agregar{
+  text-align: right;
+}
+.boton-agregar .tooltip{
+  position: absolute;
+  top: -20px;
+  left: calc(100% - 250px);
+  z-index: 3;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 400;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: 0s;
+}
+.boton-agregar:hover .tooltip{
+  color: #11101D;
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.btn{
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }

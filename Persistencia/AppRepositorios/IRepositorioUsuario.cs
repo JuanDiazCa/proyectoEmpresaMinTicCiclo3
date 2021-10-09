@@ -10,5 +10,7 @@ namespace Persistencia.AppRepositorios
         void EliminarUsuario(int idUsuario);
         Usuario ObtenerUsuario(int idUsuario);
         IEnumerable<Usuario> ObtenerTodosLosUsuarios();
+        IEnumerable<Usuario> ObtenerUsuarioNombre(string nombre);
+        IEnumerable<Usuario> ObtenerUsuarioCorreo(string doccorreoumento);
     }
 }

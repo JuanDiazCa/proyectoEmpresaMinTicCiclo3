@@ -55,6 +55,19 @@ namespace Persistencia.AppRepositorios
         }
         public IEnumerable<Empleado> ObtenerTodosLosEmpleados(){
             return _appContext.Empleados;
-        }        
-  }
-}
+        }
+
+        public IEnumerable<Empleado> ObtenerEmpleadosDocumento(string documento)
+        {
+            return _appContext.Empleados.Where(e => e.Persona.Documento.Contains(documento)).ToList();
+        }
+        public IEnumerable<Empleado> ObtenerEmpleadosNombre(string nombre)
+        {
+            return _appContext.Empleados.Where(e => e.Persona.Nombre.Contains(nombre)).ToList();
+        }
+        public IEnumerable<Empleado> ObtenerEmpleadosApellidos(string apellidos)
+        {
+            return _appContext.Empleados.Where(e => e.Persona.PrimerApellido.Contains(apellidos)||e.Persona.SegundoApellido.Contains(apellidos)).ToList();
+        }
+    }
+} 

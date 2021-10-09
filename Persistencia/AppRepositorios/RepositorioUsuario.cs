@@ -53,5 +53,15 @@ namespace Persistencia.AppRepositorios
         {
             return appContext.Usuarios;
         }
+
+        public IEnumerable<Usuario> ObtenerUsuarioNombre(string nombre)
+        {
+             return appContext.Usuarios.Where(u => u.NombreUsuario.Contains(nombre)).ToList();
+        }
+
+        public IEnumerable<Usuario> ObtenerUsuarioCorreo(string correo)
+        {
+            return appContext.Usuarios.Where(u => u.Correo.Contains(correo)).ToList();
+        }
     }
 }
