@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="~/css/layout.css" />
 </head>
 
-<body>
+<body onload="onLoad()">
     <div>
         <header>
             <nav class="navbar border-bottom encabezado">
@@ -95,6 +95,7 @@
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/funciones.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="https://kit.fontawesome.com/50ff11670d.js" crossorigin="anonymous"></script>
     @await RenderSectionAsync("Scripts", required: false)

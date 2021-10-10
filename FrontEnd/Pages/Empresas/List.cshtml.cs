@@ -15,14 +15,41 @@ namespace proyectoEmpresaMinTicCiclo3.FrontEnd.Pages
     {
         private readonly RepositorioEmpresa _repoEmpresa;
         public IEnumerable<Empresa> Empresas {get; set;}
-
+        public int Cantidad { get; set; }
+        [BindProperty]
+        public string CriterioFiltro { get; set; }
+        [BindProperty]
+        public string TextoFiltro { get; set; }
         public ListModel(RepositorioEmpresa _repoEmpresa)
         {
             this._repoEmpresa = _repoEmpresa;
         }
-        public void OnGet()
+        public void OnGet(string CriterioFiltro, string TextoFiltro)
         {
-            Empresas = _repoEmpresa.ObtenerEmpresas();
+            if(String.IsNullOrEmpty(CriterioFiltro)||String.IsNullOrEmpty(TextoFiltro))
+            {
+                Empresas = _repoEmpresa.ObtenerEmpresas();
+                Cantidad = Math.Abs(Empresas.Count());
+                return;
+            }
+            else
+            {
+                switch (CriterioFiltro)
+                {
+                    case "1":
+                        Empresas = _repoEmpresa.ObtenerEmpresas();
+                        Cantidad = Math.Abs(Empresas.Count());
+                        break;
+                    case "2":
+                        Empresas = _repoEmpresa.ObtenerEmpresasPorNit(TextoFiltro);
+                        Cantidad = Math.Abs(Empresas.Count());
+                        break;
+                    case "3":
+                        Empresas = _repoEmpresa.ObtenerEmpresasPorRazonSocial(TextoFiltro);
+                        Cantidad = Math.Abs(Empresas.Count());
+                        break;
+                }
+            }
         }
     }
 }
