@@ -43,14 +43,18 @@ namespace MyApp.Namespace
                     case "Por correo":
                         Usuarios = _repoUsuario.ObtenerUsuarioCorreo(TextoFiltro);
                     break;
+                    case "Por nombre de rol":
+                        Usuarios = _repoUsuario.ObtenerUsuarioRol(TextoFiltro);
+                    break;
+                    case "Admin de sistema":
+                        Usuarios = _repoUsuario.ObtenerUsuarioTipoAdminSistema();
+                    break;
+                    case "Admin de operativo":
+                        Usuarios = _repoUsuario.ObtenerUsuarioTipoAdmin();
+                    break;  
                 }
             }
         }
-
-        public void OnPost()
-        {
-        }
-
         public Rol GetRol(int id){
             return _repoRol.ObtenerRol(id);
         }

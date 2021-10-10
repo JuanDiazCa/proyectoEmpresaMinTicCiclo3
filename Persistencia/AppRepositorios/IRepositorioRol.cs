@@ -11,5 +11,8 @@ namespace Persistencia.AppRepositorios
         Rol ObtenerRol(int idRol);
         Rol ObtenerRolPorNombre(string nombreRol);
         IEnumerable<Rol> ObtenerTodosLosRoles();
+        IEnumerable<Rol> ObtenerRolNombre(string nombre);
+        IEnumerable<Rol> ObtenerRolTipoAdminSistema();
+        IEnumerable<Rol> ObtenerRolTipoAdmin();
     }
 }

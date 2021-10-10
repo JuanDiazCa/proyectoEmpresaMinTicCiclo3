@@ -13,18 +13,39 @@ namespace FrontEnd.Pages.Roles
     {
         private readonly RepositorioRol _repoRol;
         public IEnumerable<Rol> Roles {get; set;}
+        [BindProperty]
+        public string CriterioFiltro { get; set; }
+        [BindProperty]
+        public string TextoFiltro { get; set; }
 
         public ListaRolesModel(RepositorioRol _repoRol)
         {
             this._repoRol = _repoRol;
         }
-        public void OnGet()
+        public void OnGet(string CriterioFiltro, string TextoFiltro)
         {
-            Roles = _repoRol.ObtenerTodosLosRoles();
-        }
-
-        public void OnPost()
-        {
+            if(String.IsNullOrEmpty(CriterioFiltro)||String.IsNullOrEmpty(TextoFiltro))
+            {
+                Roles = _repoRol.ObtenerTodosLosRoles();
+            }
+            else
+            {
+                switch (CriterioFiltro)
+                {
+                    case "Todos los registros":
+                        Roles = _repoRol.ObtenerTodosLosRoles();
+                    break;
+                    case "Por nombre de rol":
+                        Roles = _repoRol.ObtenerRolNombre(TextoFiltro);
+                    break;
+                    case "Admin de sistema":
+                        Roles = _repoRol.ObtenerRolTipoAdminSistema();
+                    break;
+                    case "Admin de operativo":
+                        Roles = _repoRol.ObtenerRolTipoAdmin();
+                    break;
+                }
+            }
         }
     }
 }

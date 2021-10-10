@@ -32,10 +32,10 @@ namespace FrontEnd.Pages
 
     public class Credencial
     {
-        [Required]
+        [Required(ErrorMessage = "Por favor escribe tu nombre de usuario")]
         public string Usuario {get; set;}
 
-        [Required]
+        [Required(ErrorMessage = "Por favor escribe tu contraseña")]
         [DataType(DataType.Password)]
         public string Clave {get; set;}
     }

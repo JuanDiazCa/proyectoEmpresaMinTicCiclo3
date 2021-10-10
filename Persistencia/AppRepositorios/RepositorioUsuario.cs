@@ -37,7 +37,7 @@ namespace Persistencia.AppRepositorios
         public void EliminarUsuario(int idUsuario)
         {
             var usuario_encontrado = appContext.Usuarios.FirstOrDefault(u => u.Id == idUsuario);
-            if(usuario_encontrado == null)
+            if (usuario_encontrado == null)
                 return;
             appContext.Usuarios.Remove(usuario_encontrado);
 
@@ -56,12 +56,27 @@ namespace Persistencia.AppRepositorios
 
         public IEnumerable<Usuario> ObtenerUsuarioNombre(string nombre)
         {
-             return appContext.Usuarios.Where(u => u.NombreUsuario.Contains(nombre)).ToList();
+            return appContext.Usuarios.Where(u => u.NombreUsuario.Contains(nombre)).ToList();
         }
 
         public IEnumerable<Usuario> ObtenerUsuarioCorreo(string correo)
         {
             return appContext.Usuarios.Where(u => u.Correo.Contains(correo)).ToList();
+        }
+
+        public IEnumerable<Usuario> ObtenerUsuarioRol(string rol)
+        {
+            return appContext.Usuarios.Where(u => u.Rol.Nombre.Contains(rol)).ToList();
+        }
+
+        public IEnumerable<Usuario> ObtenerUsuarioTipoAdmin()
+        {
+            return appContext.Usuarios.Where(u => u.Rol.EsSuperAdmin == false).ToList();
+        }
+
+        public IEnumerable<Usuario> ObtenerUsuarioTipoAdminSistema()
+        {
+            return appContext.Usuarios.Where(u => u.Rol.EsSuperAdmin == true).ToList();
         }
     }
 }

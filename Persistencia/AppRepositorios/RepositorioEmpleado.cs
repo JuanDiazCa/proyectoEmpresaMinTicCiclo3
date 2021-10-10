@@ -53,7 +53,9 @@ namespace Persistencia.AppRepositorios
             return _appContext.Empleados.FirstOrDefault(e => e.Id == idEmpleado);
         }
         public IEnumerable<Empleado> ObtenerTodosLosEmpleados(){
-            return _appContext.Empleados;
+            //select * from Empleados where not exists (select 1 from Directivos where Empleados.Id=Directivos.EmpleadoId)
+            return _appContext.Empleados.Where(e => !_appContext.Directivos.Any(d =>d.EmpleadoId == e.Id));
+            //return _appContext.Empleados;
         }
 
         public IEnumerable<Empleado> ObtenerEmpleadosDocumento(string documento)

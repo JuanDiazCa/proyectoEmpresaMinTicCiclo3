@@ -19,8 +19,6 @@ namespace FrontEnd.Pages.Empleados
         private readonly RepositorioDirectivo _repoDirectivo;
         public IEnumerable<Empleado> Empleados { get; set; }
         public IEnumerable<Directivo> Directivos { get; set; }
-        public Persona Persona { get; set; }
-        public int Cantidad { get; set; }
         [BindProperty]
         public string CriterioFiltro { get; set; }
         [BindProperty]
@@ -35,13 +33,9 @@ namespace FrontEnd.Pages.Empleados
         }
         public void OnGet(string CriterioFiltro, string TextoFiltro)
         {
-            //Console.WriteLine("Criterio: "+ CriterioFiltro);
-            //Console.WriteLine("Texto: "+ TextoFiltro);
             if(String.IsNullOrEmpty(CriterioFiltro)||String.IsNullOrEmpty(TextoFiltro))
             {
                 Empleados = _repoEmpleado.ObtenerTodosLosEmpleados();
-                Directivos = _repoDirectivo.ObtenerTodosLosDirectivos();
-                Cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
                 return;
             }
             else
@@ -50,33 +44,19 @@ namespace FrontEnd.Pages.Empleados
                 {
                     case "Todos los registros":
                         Empleados = _repoEmpleado.ObtenerTodosLosEmpleados();
-                        Directivos = _repoDirectivo.ObtenerTodosLosDirectivos();
-                        Cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
                         break;
                     case "Por documento":
                         Empleados = _repoEmpleado.ObtenerEmpleadosDocumento(TextoFiltro);
-                        Directivos = _repoDirectivo.ObtenerTodosLosDirectivos();
-                        Cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
                         break;
                     case "Por nombre":
                         Empleados = _repoEmpleado.ObtenerEmpleadosNombre(TextoFiltro);
-                        Directivos = _repoDirectivo.ObtenerTodosLosDirectivos();
-                        Cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
                         break;
                     case "Por apellidos":
                         Empleados = _repoEmpleado.ObtenerEmpleadosApellidos(TextoFiltro);
-                        Directivos = _repoDirectivo.ObtenerTodosLosDirectivos();
-                        Cantidad = Math.Abs(Empleados.Count() - Directivos.Count());
                         break;
                 }
             }
         }
-//https://localhost:5001/Empleados/Post?CriterioFiltro=Por+documento&TextoFiltro=5555
-        /*public IActionResult OnPost(string CriterioFiltro, string TextoFiltro)
-        {
-            
-        }*/
-
         public string GetNombreEmpresa(int id)
         {
             var empresa = _repoEmpresa.ObtenerEmpresa(id);
@@ -91,18 +71,6 @@ namespace FrontEnd.Pages.Empleados
         public int CalcularEdad(DateTime fecha)
         {
             return DateTime.Today.AddTicks(-fecha.Ticks).Year - 1;
-        }
-
-        public bool EsDirectivo(int idEmpleado)
-        {
-            foreach (var dir in Directivos)
-            {
-                if (dir.EmpleadoId == idEmpleado)
-                {
-                    return true;
-                }
-            }
-            return false;
         }
     }
 }

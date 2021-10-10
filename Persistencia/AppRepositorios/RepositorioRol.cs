@@ -22,7 +22,8 @@ namespace Persistencia.AppRepositorios
         public Rol ActualizarRol(Rol rol)
         {
             var rolEncontrado = appContext.Roles.FirstOrDefault(r => r.Id == rol.Id);
-            if(rolEncontrado != null){
+            if (rolEncontrado != null)
+            {
                 rolEncontrado.Nombre = rol.Nombre;
                 rolEncontrado.Ingresar = rol.Ingresar;
                 rolEncontrado.Modificar = rol.Modificar;
@@ -36,7 +37,7 @@ namespace Persistencia.AppRepositorios
         public void EliminarRol(int idRol)
         {
             var rolEncontrado = appContext.Roles.FirstOrDefault(r => r.Id == idRol);
-            if(rolEncontrado == null)
+            if (rolEncontrado == null)
                 return;
             appContext.Roles.Remove(rolEncontrado);
             appContext.SaveChanges();
@@ -55,6 +56,21 @@ namespace Persistencia.AppRepositorios
             return appContext.Roles.FirstOrDefault(
                 e => e.Nombre == nombreRol
             );
+        }
+
+        public IEnumerable<Rol> ObtenerRolNombre(string nombre)
+        {
+            return appContext.Roles.Where(r => r.Nombre.Contains(nombre)).ToList();
+        }
+
+        public IEnumerable<Rol> ObtenerRolTipoAdminSistema()
+        {
+            return appContext.Roles.Where(u => u.EsSuperAdmin == true).ToList();
+        }
+
+        public IEnumerable<Rol> ObtenerRolTipoAdmin()
+        {
+            return appContext.Roles.Where(u => u.EsSuperAdmin == false).ToList();
         }
     }
 }

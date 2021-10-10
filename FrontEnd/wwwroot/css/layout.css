@@ -308,3 +308,26 @@ form .btn{
 .btn{
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
+.btn-danger{
+  background-color: #a70000;
+}
+.btn-danger:hover{
+  background-color: #ce0000;
+}
+.btn-success{
+  background-color:green;
+}
+.btn-success:hover{
+  background-color:rgb(0, 153, 0);
+}
+.btn-warning{
+  background-color:rgb(255, 230, 5);
+  color:#25233f
+}
+.btn-warning:hover{
+  background-color:rgb(255, 233, 37);
+  color:#757575
+}
+input[type=checkbox], input[type=radio] {
+  box-shadow: none;
+}

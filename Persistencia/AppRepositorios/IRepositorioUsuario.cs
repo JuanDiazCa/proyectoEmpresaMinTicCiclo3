@@ -11,6 +11,9 @@ namespace Persistencia.AppRepositorios
         Usuario ObtenerUsuario(int idUsuario);
         IEnumerable<Usuario> ObtenerTodosLosUsuarios();
         IEnumerable<Usuario> ObtenerUsuarioNombre(string nombre);
-        IEnumerable<Usuario> ObtenerUsuarioCorreo(string doccorreoumento);
+        IEnumerable<Usuario> ObtenerUsuarioCorreo(string correo);
+        IEnumerable<Usuario> ObtenerUsuarioRol(string rol);
+        IEnumerable<Usuario> ObtenerUsuarioTipoAdmin();
+        IEnumerable<Usuario> ObtenerUsuarioTipoAdminSistema();
     }
 }
