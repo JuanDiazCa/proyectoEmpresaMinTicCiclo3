@@ -20,6 +20,10 @@ namespace FrontEnd.Pages.Directivos
 
         public IEnumerable<Directivo> Directivos {get; set;}
         public Persona Persona {get; set;}
+          [BindProperty]
+        public string CriterioFiltro { get; set; }
+        [BindProperty]
+        public string TextoFiltro { get; set; }
 
         public ListaDirectivosModel(RepositorioEmpleado _repoEmpleado, RepositorioPersona _repoPersona, RepositorioEmpresa _repoEmpresa, RepositorioDirectivo _repoDirectivo)
         {
@@ -28,15 +32,28 @@ namespace FrontEnd.Pages.Directivos
             this._repoEmpresa = _repoEmpresa;
             this._repoDirectivo = _repoDirectivo;
         }
-        public void OnGet()
+         public void OnGet(string CriterioFiltro, string TextoFiltro)
         {
-            Directivos = _repoDirectivo.ObtenerTodosLosDirectivos();
+            if(String.IsNullOrEmpty(CriterioFiltro)||String.IsNullOrEmpty(TextoFiltro))
+            {
+                Directivos = _repoDirectivo.ObtenerTodosLosDirectivos();
+                return;
+            }
+            else
+            {
+                switch (CriterioFiltro)
+                {
+                    case "Todos los registros":
+                        Directivos= _repoDirectivo.ObtenerTodosLosDirectivos();
+                        break;
+                    case "Por categoria":
+                        Directivos = _repoDirectivo.ObtenerDirectivoPorCategoria(TextoFiltro);
+                        break;
+                    
+                }
+            }
         }
-
-        public void OnPost()
-        {
-        }
-
+      
         public string GetNombreEmpresa(int id)
         {
             var empresa = _repoEmpresa.ObtenerEmpresa(id);

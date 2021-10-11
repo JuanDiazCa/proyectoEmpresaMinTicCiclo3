@@ -10,5 +10,6 @@ namespace Persistencia.AppRepositorios
         void EliminarDirectivo(int idDirectivo);
         Directivo ObtenerDirectivo(int idDirectivo);
         IEnumerable<Directivo> ObtenerTodosLosDirectivos();
+        IEnumerable<Directivo> ObtenerDirectivoPorCategoria(string Categoria);
     }
 }

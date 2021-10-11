@@ -1,7 +1,8 @@
 using System;
-using System.Linq;
-using System.Collections.Generic;
+using Dominio;
 using Dominio.Entidades;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Persistencia.AppRepositorios
 {
@@ -45,6 +46,10 @@ namespace Persistencia.AppRepositorios
         public IEnumerable<Directivo> ObtenerTodosLosDirectivos()
         {
             return appContext.Directivos;
+        }
+          public IEnumerable<Directivo> ObtenerDirectivoPorCategoria(string Categoria)
+        {
+            return appContext.Directivos.Where(e => e.Categoria.Contains(Categoria)).ToList();
         }
     }
 }
