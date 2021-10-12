@@ -14,7 +14,20 @@ function actualizar_form(){
     }
 }
 
-function onLoad(){
+function actualizarFiltroCliente(){
+    let selectCliente = document.querySelector("#selectFiltroCliente").selectedIndex;
+    let inputCliente = document.querySelector("#inputFiltroCliente");
+    let buttonCliente = document.querySelector("#botonFiltroCliente");
 
+    if(selectCliente === 0){
+        inputCliente.disabled = true;
+        inputCliente.value = "";
+    } else{
+        inputCliente.disabled = false;
+    }
+}
+
+function onLoad(){
     actualizar_form();
+    actualizarFiltroCliente();
 }

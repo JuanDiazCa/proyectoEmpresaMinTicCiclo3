@@ -11,5 +11,9 @@ namespace Persistencia.AppRepositorios
         void EliminarCliente(int idCliente);
         Cliente ObtenerCliente(int idCliente);
         IEnumerable<Cliente> ObtenerTodosLosClientes();
+        IEnumerable<Cliente> ObtenerClienteDocumento(string documento);
+        IEnumerable<Cliente> ObtenerClienteNombre(string nombre);
+        IEnumerable<Cliente> ObtenerClienteApellidos(string apellidos);
+
     }
 }

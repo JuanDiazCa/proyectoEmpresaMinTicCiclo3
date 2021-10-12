@@ -7,10 +7,39 @@
     <h2>Gestion de clientes</h2>
 </div>
 <br>
-<div>
-    <a class="btn btn-success" asp-page="./Agregar">
-        <i class="fas fa-user-plus"></i>
-    </a>
+<div class="row">
+    <div class="col-md-7">
+        <div class="border contenedor-filtro">
+            <form action="get" class="form-inline">
+                <div class="form-group col-md-2 text-center">
+                    <h3>Filtro</h3>
+                </div>
+                <div class="form-group col-md-4 text-center">
+                    <select id="selectFiltroCliente" asp-for="@Model.CriterioFiltro" class="form-control" onchange="actualizarFiltroCliente()">
+                        <option selected>Todos los registros</option>
+                        <option>Por documento</option>
+                        <option>Por nombres</option>
+                        <option>Por apellidos</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4 text-center">
+                    <input id="inputFiltroCliente" asp-for="@Model.TextoFiltro" type="text" class="form-control">
+                </div>
+                <div class="form-group col-md-2 text-center">
+                    <!--<input type="submit" value="Filtrar" class="btn btn-primary">-->
+                    <button id="botonFiltroCliente" type="submit" class="btn btn-primary" asp-route-criterio="@Model.CriterioFiltro" asp-route-filtro="@Model.TextoFiltro">
+                        Filtrar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-5 contenedor-btn-agregar">
+        <a class="btn btn-success boton-agregar" asp-page="./Agregar">
+            <i class="fas fa-user-plus"></i>
+            <span class="tooltip">Agregar cliente</span>
+        </a>
+    </div>
 </div>
 <br>
 <br>
