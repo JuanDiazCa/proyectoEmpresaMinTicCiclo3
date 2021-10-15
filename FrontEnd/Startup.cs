@@ -25,7 +25,7 @@ namespace FrontEnd
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddRazorPages();
+            services.AddControllersWithViews();
             services.AddSingleton<RepositorioCliente>(new RepositorioCliente(new Persistencia.AppRepositorios.AppContext()));
             services.AddSingleton<RepositorioEmpresa>(new RepositorioEmpresa(new Persistencia.AppRepositorios.AppContext()));
             services.AddSingleton<RepositorioPersona>(new RepositorioPersona(new Persistencia.AppRepositorios.AppContext()));
@@ -38,6 +38,7 @@ namespace FrontEnd
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -55,6 +56,7 @@ namespace FrontEnd
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints => endpoints.MapRazorPages());
         }

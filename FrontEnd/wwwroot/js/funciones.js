@@ -28,6 +28,6 @@ function actualizarFiltroCliente(){
 }
 
 function onLoad(){
-    actualizar_form();
     actualizarFiltroCliente();
+    actualizar_form();
 }
