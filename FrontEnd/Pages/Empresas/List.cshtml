@@ -25,18 +25,18 @@
                             <h3>Filtro</h3>
                         </div>
                         <div class="form-group col-md-4 text-center">
-                            <select id="selectFiltroEmpresa" asp-for="@Model.CriterioFiltro" class="form-control" onchange="actualizar_form()">
+                            <select id="selectFiltro" asp-for="@Model.CriterioFiltro" class="form-control" onchange="actualizar_form()">
                                 <option value="1" selected>Todos los registros</option>
                                 <option value="2">Por nit</option>
                                 <option value="3">Por razón social</option>
                             </select>
                         </div>
                         <div class="form-group col-md-4 text-center">
-                            <input id="inputFiltroEmpresa" asp-for="@Model.TextoFiltro" type="text" class="form-control">
+                            <input id="inputFiltro" asp-for="@Model.TextoFiltro" type="text" class="form-control">
                         </div>
                         <div class="form-group col-md-2 text-center">
                             <!--<input type="submit" value="Filtrar" class="btn btn-primary">-->
-                            <button id="botonFiltroEmpresa" type="submit" class="btn btn-primary" asp-route-criterio="@Model.CriterioFiltro" asp-route-filtro="@Model.TextoFiltro">
+                            <button id="botonFiltro" type="submit" class="btn btn-primary" asp-route-criterio="@Model.CriterioFiltro" asp-route-filtro="@Model.TextoFiltro">
                                 Filtrar
                             </button>
                         </div>

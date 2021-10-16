@@ -1,8 +1,8 @@
 function actualizar_form(){
 
-    let select = document.querySelector("#selectFiltroEmpresa").selectedIndex;
-    let input = document.querySelector("#inputFiltroEmpresa");
-    let button = document.querySelector("#botonFiltroEmpresa");
+    let select = document.querySelector("#selectFiltro").selectedIndex;
+    let input = document.querySelector("#inputFiltro");
+    let button = document.querySelector("#botonFiltro");
 
     if(select === 0){
 
@@ -14,20 +14,7 @@ function actualizar_form(){
     }
 }
 
-function actualizarFiltroCliente(){
-    let selectCliente = document.querySelector("#selectFiltroCliente").selectedIndex;
-    let inputCliente = document.querySelector("#inputFiltroCliente");
-    let buttonCliente = document.querySelector("#botonFiltroCliente");
-
-    if(selectCliente === 0){
-        inputCliente.disabled = true;
-        inputCliente.value = "";
-    } else{
-        inputCliente.disabled = false;
-    }
-}
-
 function onLoad(){
-    actualizarFiltroCliente();
+
     actualizar_form();
 }
