@@ -8,10 +8,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Dominio.Entidades;
 using Persistencia.AppRepositorios;
+using Microsoft.AspNetCore.Authorization;
 
 namespace proyectoEmpresaMinTicCiclo3.FrontEnd.Pages
 {
-    public class ListModel : PageModel
+    [Authorize]
+     public class ListModel : PageModel
     {
         private readonly RepositorioEmpresa _repoEmpresa;
         public IEnumerable<Empresa> Empresas {get; set;}

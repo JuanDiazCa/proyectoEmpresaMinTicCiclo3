@@ -8,10 +8,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Dominio.Entidades;
 using Persistencia.AppRepositorios;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FrontEnd.Pages.Directivos
 {
-    public class ListaDirectivosModel : PageModel
+    [Authorize]
+     public class ListaDirectivosModel : PageModel
     {
         private readonly RepositorioEmpleado _repoEmpleado;
         private readonly RepositorioPersona _repoPersona;

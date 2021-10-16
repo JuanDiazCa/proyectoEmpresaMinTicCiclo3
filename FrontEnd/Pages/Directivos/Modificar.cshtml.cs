@@ -9,9 +9,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Dominio.Entidades;
 using Persistencia.AppRepositorios;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FrontEnd.Pages.Directivos
-{
+{  
+    [Authorize]
     public class EditModel : PageModel
     {
         private readonly RepositorioEmpleado _repoEmpleado;

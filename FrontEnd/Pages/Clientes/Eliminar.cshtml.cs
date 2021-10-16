@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Dominio.Entidades;
 using Persistencia.AppRepositorios;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FrontEnd.Pages.Clientes
-{
+{ 
+    [Authorize]
     public class EliminarModelCliente : PageModel
     {
         private readonly RepositorioCliente _repoCliente;

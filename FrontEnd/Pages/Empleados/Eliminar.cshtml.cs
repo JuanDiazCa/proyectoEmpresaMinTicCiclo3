@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Dominio.Entidades;
 using Persistencia.AppRepositorios;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FrontEnd.Pages.Empleados
 {
-    public class EliminarModel : PageModel
+     [Authorize]
+     public class EliminarModel : PageModel
     {
         private readonly RepositorioEmpleado _repoEmpleado;
         private readonly RepositorioPersona _repoPersona;

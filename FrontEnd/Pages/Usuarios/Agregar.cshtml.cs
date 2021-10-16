@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Dominio.Entidades;
 using Persistencia.AppRepositorios;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MyApp.Namespace
 {
+    [Authorize]
     public class AgregarModel : PageModel
     {
         private readonly RepositorioUsuario _repoUsuario;

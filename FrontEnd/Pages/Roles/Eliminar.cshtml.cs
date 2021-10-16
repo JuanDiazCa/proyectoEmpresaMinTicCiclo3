@@ -6,10 +6,12 @@ using Dominio.Entidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Persistencia.AppRepositorios;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FrontEnd.Pages.Roles
 {
-    public class EliminarModel : PageModel
+      [Authorize]
+       public class EliminarModel : PageModel
     {
         private readonly RepositorioRol _repoRol;
         public Rol Rol {get; set;}

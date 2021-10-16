@@ -6,9 +6,11 @@ using Dominio.Entidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Persistencia.AppRepositorios;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MyApp.Namespace
 {
+    [Authorize]
     public class DetallesModel : PageModel
     {
         private readonly RepositorioUsuario _repoUsuario;

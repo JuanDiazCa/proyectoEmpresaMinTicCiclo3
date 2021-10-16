@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Dominio.Entidades;
 using Persistencia.AppRepositorios;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FrontEnd.Pages.Clientes
 {
+     [Authorize]
     public class DetallesModelCliente : PageModel
     {
         private readonly RepositorioCliente _repoCliente;
