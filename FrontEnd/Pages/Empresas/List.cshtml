@@ -3,7 +3,7 @@
 @{
     Layout = "_LayoutAdmin";
 }
-<div class="container">
+
     <header>
         <div class="row">
             <div class="col-4">
@@ -55,7 +55,6 @@
     <main>
         <div class="row">
             <table class="table table-bordered">
-                <thead class="thead-dark">
                     <tr>
                         <th>Nit</th>
                         <th>Razón social</th>
@@ -65,7 +64,6 @@
                         <th>Eliminar</th>
 
                     </tr>
-                </thead>
                 <tbody>
                 @foreach (var empresa in Model.Empresas)
                 {
@@ -94,11 +92,10 @@
             </table>
         </div>
     </main>
-    <footer class="bg-light text-center text-lg-start">
+    <footer class="text-center text-lg-start">
         <!-- Copyright -->
         <div class="text-center p-3">
             <h5>Existe(n) @Model.Cantidad empresa(s) en la base de datos.</h5>
         </div>
         <!-- Copyright -->
     </footer>
-</div>

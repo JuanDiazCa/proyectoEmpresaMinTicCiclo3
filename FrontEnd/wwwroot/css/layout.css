@@ -109,6 +109,25 @@
   transition: all 0.4s ease;
   background: #25233f;
 }
+.btn-tuto{
+  border-radius: 12px;
+  align-items: center;
+  text-decoration: none;
+  background: #25233f;
+  color: #FFF;
+  padding: 10px;
+  margin: 5px;
+}
+.btn-tuto-salir{
+  background: #550000;
+  color: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  margin: 5px;
+}
+p{
+  padding-top: 10px;
+}
 .sidebar li a:hover{
   background: #FFF;
 }
@@ -208,6 +227,11 @@
     margin: 10px;
     padding-right: 20px;
 }
+.tiulo-dash h1{
+  font-weight: bolder;
+  color:#11101d;
+  text-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
 .pie{
     background-color:#11101D;
     color: #E4E9F7;
@@ -232,6 +256,11 @@
     font-weight: bolder;
     color: #1d1b31;
     text-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+.texto-confirmacion h2{
+  font-weight: bolder;
+  color: #1ebd08;
+  text-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 .home-section h5{
     font-weight: bolder;

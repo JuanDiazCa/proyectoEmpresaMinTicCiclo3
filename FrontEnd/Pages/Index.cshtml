@@ -3,5 +3,32 @@
 @{
     Layout = "_LayoutAdmin";
 }
-
-<h1>Pagina principal del dashboard del admin</h1>
+<div class="text-center tiulo-dash" style="padding-top: 2%;">
+    <h1>Dashboard del Administrador operativo</h1>
+</div>
+<div class="text-center tiulo-dash">
+    <h3>Bienvenido @User.Identity.Name</h3>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <h3>Fecha y hora local: @DateTime.Now</h3>
+    </div>
+    <div class="row text-justify">
+        <p>En la parte izquierda encontrar un sideboard con el menu de las diferentes opciones. 
+            Para desplegarlo has clic en el boton </p><i class='bx bx-menu btn-tuto'></i>
+            <p>, sin embargo los botones funcionan este desplegado o no el sidebar.</p><br><br>
+            <i class='bx bx-grid-alt btn-tuto'></i><p>Este boton muestra esta vista (Principal).</p><br>
+            <p>El boton </p><i class='bx bxs-factory btn-tuto'></i><p> abre la gestión de empresas.</p><br>
+            <p>El boton </p><i class='bx bx-group btn-tuto'></i><p> abre la gestión de los empleados operativos.</p><br>
+            <p>El boton </p><i class='bx bxs-user-badge btn-tuto'></i><p> abre la gestión de los empleados directivos.</p><br>
+            <p>El boton </p><i class='bx bx-face btn-tuto'></i><p> abre la gestión de Clientes</p><br>
+            <p>El boton </p><i class='bx bx-cog btn-tuto'></i></i><p> abre la configuración donde podras cambiar tu contraseña</p><br>
+            <p>El boton </p><i class='bx bx-cog btn-tuto'></i></i><p> abre la configuración donde podras cambiar tu contraseña</p><br>
+            <p>El boton </p><i class='bx bx-log-out btn-tuto-salir'></i><p> cierra la sesión de usuario</p><br>
+            <br>
+            <p>En la gestión de cada una de las entidades se vera un listado de todos los registros, si se desea 
+                tambien se pueden filtrar los registros por algunas caracteristicas individuales de las entidades</p>
+            
+    </div>
+</div>

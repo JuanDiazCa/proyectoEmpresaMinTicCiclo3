@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 
-namespace MyApp.Namespace
+namespace FrontEnd.Pages
 {
     public class CerrarSesionModel : PageModel
     {
@@ -23,6 +23,11 @@ namespace MyApp.Namespace
 
         public async Task<IActionResult> OnGet(string returnUrl = null)
         {
+            if(User!=null)
+            {
+                Console.WriteLine("cerrando sesion");
+                Console.WriteLine(User.Identity.Name);
+            }
             await _signInManager.SignOutAsync();
             _logger.LogInformation("User logged out.");
             if (returnUrl != null)
