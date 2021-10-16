@@ -87,7 +87,7 @@ namespace FrontEnd.Areas.Identity.Pages.Account
             ReturnUrl = returnUrl;
         }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        public async Task<IActionResult> OnPostAsync(string returnUrl)
         {
             returnUrl ??= Url.Content("~/Index");
 
@@ -100,24 +100,9 @@ namespace FrontEnd.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    Console.WriteLine("Logeado exitoso");
-                    _logger.LogInformation("User logged in.");
-                    //return RedirectToPage("/Index");
-                    if(User!=null){
-                    if(User.Identity.IsAuthenticated)
+                    if (!string.IsNullOrEmpty(returnUrl))
                     {
-                            Console.WriteLine(User.GetType().ToString());
-                            Console.WriteLine(User.Identity.IsAuthenticated);
-                            Console.WriteLine(User.Identity.Name);
-                            Console.WriteLine(User.Identity.AuthenticationType);
-                            Console.WriteLine("Claims");
-                            foreach(var claim in User.Claims)
-                            {
-                                Console.WriteLine(claim.Type);
-                                Console.WriteLine(claim.Value);
-                            }
-                            //RedirectToPage("/Index");
-                        }
+                        return Redirect(returnUrl);
                     }
                     return RedirectToPage("/Index");
                 }
