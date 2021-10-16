@@ -19,9 +19,10 @@ namespace FrontEnd.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("FrontEndIdentityDbContextConnection")));
 
-                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)//true
                     .AddEntityFrameworkStores<FrontEndIdentityDbContext>();
             });
         }
     }
 }
+//"FrontEndIdentityDbContextConnection": "Server=localhost;Database=MyCompanyAppDB;user=SA;password=MinTic2021"

@@ -13,11 +13,20 @@ namespace Persistencia.AppRepositorios
         public DbSet<Empresa> Empresas {get;set;}
         public DbSet<Directivo> Directivos {get;set;}
         private const string connectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog = BDEmpresaTeamDDesarroladores;Integrated Security = True";
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){
             if(!optionsBuilder.IsConfigured){
                 optionsBuilder
                 .UseSqlServer(connectionString);
             }
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Usuario>().HasIndex(u => u.NombreUsuario).IsUnique();
+            builder.Entity<Usuario>().HasIndex(u => u.Correo).IsUnique();
+            builder.Entity<Persona>().HasIndex(p => p.Documento).IsUnique();
+            builder.Entity<Empresa>().HasIndex(e => e.Nit).IsUnique();
         }
     }
 }

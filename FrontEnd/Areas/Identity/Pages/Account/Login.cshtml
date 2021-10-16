@@ -1,27 +1,54 @@
 @page
 @model LoginModel
-
 @{
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "Iniciar sesión";
 }
 
-<h1>@ViewData["Title"]</h1>
-<div class="row">
-    <div class="col-md-4">
-        <section>
-            <form id="account" method="post">
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Input.Email"></label>
-                    <input asp-for="Input.Email" class="form-control" />
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+<span class="text-center">
+    <div class="row" style="padding-top: 10%;">
+        <div class="container border col-md-6 col-sm-12">
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <div class="form-group row">
+                    <div class="col-md-6 enlace-login activo">
+                        <h1>Login</h1>
+                    </div>
+                    <div class="col-md-6 enlace-registro">
+                        <a asp-page="./Register">Registro</a>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Input.Password"></label>
-                    <input asp-for="Input.Password" class="form-control" />
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                <div class="form-group row login-icono">
+                    <i class='bx bxs-key'></i>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <label for="">Correo electronico</label>
+                    </div>
+                    <div class="col">
+                        <input asp-for="Input.Email" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <label for="">Contraseña</label>
+                    </div>
+                    <div class="col">
+                        <input asp-for="Input.Password" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
                 </div>
                 <div class="form-group">
                     <div class="checkbox">
@@ -31,54 +58,31 @@
                         </label>
                     </div>
                 </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
+                <div class="form-group row">
+                    <div class="col">
+                        <span class="text-center">
+                            <input type="submit" value="Ingresar" class="btn btn-success">
+                        </span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                    </p>
-                    <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                    </p>
+                <div class="form-group row">
+                    <div class="col">
+                        <span class="text-center">
+                            <a id="forgot-password" asp-page="./ForgotPassword">Olvide mi contraseña</a>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <span class="text-center">
+                            <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Re-enviar correo de confirmación</a>
+                        </span>
+                    </div>
                 </div>
             </form>
-        </section>
+        </div>
     </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h4>Use another service to log in.</h4>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
-                            for details on setting up this ASP.NET application to support logging in via external services.
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>
-    </div>
-</div>
+</span>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

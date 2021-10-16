@@ -2,21 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 
-namespace FrontEnd.Areas.Identity.Pages.Account
+namespace MyApp.Namespace
 {
-    [AllowAnonymous]
-    public class LogoutModel : PageModel
+    public class CerrarSesionModel : PageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly ILogger<LogoutModel> _logger;
+        private readonly ILogger<CerrarSesionModel> _logger;
 
-        public LogoutModel(SignInManager<IdentityUser> signInManager, ILogger<LogoutModel> logger)
+        public CerrarSesionModel(SignInManager<IdentityUser> signInManager, ILogger<CerrarSesionModel> logger)
         {
             _signInManager = signInManager;
             _logger = logger;
@@ -32,7 +31,7 @@ namespace FrontEnd.Areas.Identity.Pages.Account
             }
             else
             {
-                return RedirectToPage("/Identity/Account/Login");
+                return RedirectToPage("/Index");
             }
         }
     }

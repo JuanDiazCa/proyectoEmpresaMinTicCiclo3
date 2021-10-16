@@ -1,9 +1,8 @@
 ﻿@page
-@model LogoutModel
+@model MyApp.Namespace.CerrarSesionModel
 @{
-    ViewData["Title"] = "Log out";
+    Layout = "_LayoutAdmin";
 }
-<h1>@ViewData["Title"]</h1>
 @{
     if (User.Identity.IsAuthenticated)
     {

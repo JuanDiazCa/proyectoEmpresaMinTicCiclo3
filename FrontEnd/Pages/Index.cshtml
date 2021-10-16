@@ -1,57 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Login";
-    Layout = "_LayoutLogin";
+    Layout = "_LayoutAdmin";
 }
 
-<span class="text-center">
-    <div class="row" style="padding-top: 10%;">
-        <div class="col"></div>
-        <div class="container border col-md-6 col-sm-12">
-            <form method="post">
-                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-                <div class="form-group row">
-                    <h1>Login</h1>
-                </div>
-                <div class="form-group row login-icono">
-                    <i class='bx bxs-key'></i>
-                </div>
-                <div class="form-group row">
-                    <div class="col">
-                        <label for="">Nombre de usuario</label>
-                    </div>
-                    <div class="col">
-                        <input type="text" asp-for="Credencial.Usuario" class="form-control" placeholder="Nombre de usuario">
-                    </div>
-                </div>
-                <div class="form-group row text-center">
-                    <span class="text-danger" asp-validation-for="Credencial.Usuario" style="width: 100%;"></span>
-                </div>
-                <div class="form-group row">
-                    <div class="col">
-                        <label for="">Contraseña</label>
-                    </div>
-                    <div class="col">
-                        <input type="password" asp-for="Credencial.Clave" class="form-control" placeholder="Contraseña">
-                    </div>
-                </div>
-                <div class="form-group row text-center">
-                    <span class="text-danger" asp-validation-for="Credencial.Clave" style="width: 100%;"></span>
-                </div>
-                <br>
-                <div class="form-group row">
-                    <div class="col"></div>
-                    <div class="col-md-6">
-                        <input type="submit" value="Ingresar" class="btn btn-success">
-                        <br>
-                        <br>
-                        <a asp-page="./RecordarClave/RecordarClave">Olvide mi contraseña</a>
-                    </div>
-                    <div class="col"></div>
-                </div>
-            </form>
-        </div>
-        <div class="col"></div>
-    </div>
-</span>
+<h1>Pagina principal del dashboard del admin</h1>

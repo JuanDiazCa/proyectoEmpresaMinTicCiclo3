@@ -28,6 +28,22 @@ namespace FrontEnd.Areas.Identity.Pages.Account
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            if(User!=null){
+                if(User.Identity.IsAuthenticated)
+                {
+                    Console.WriteLine(User.Identity.IsAuthenticated);
+                    Console.WriteLine(User.Identity.Name);
+                    Console.WriteLine(User.Identity.AuthenticationType);
+                    Console.WriteLine("Claims");
+                    foreach(var claim in User.Claims)
+                    {
+                        Console.WriteLine(claim.Type);
+                        Console.WriteLine(claim.Value);
+                    }
+                    //RedirectToPage("/Index");
+                }
+            }
+            
         }
 
         [BindProperty]
@@ -42,15 +58,15 @@ namespace FrontEnd.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "El correo electronico es necesario")]
             [EmailAddress]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "El password es necesario")]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Recordarme")]
             public bool RememberMe { get; set; }
         }
 
@@ -61,7 +77,7 @@ namespace FrontEnd.Areas.Identity.Pages.Account
                 ModelState.AddModelError(string.Empty, ErrorMessage);
             }
 
-            returnUrl ??= Url.Content("~/");
+            returnUrl ??= Url.Content("~/Index");
 
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
@@ -73,10 +89,10 @@ namespace FrontEnd.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl ??= Url.Content("~/");
+            returnUrl ??= Url.Content("~/Index");
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-        
+            Console.WriteLine("POST");
             if (ModelState.IsValid)
             {
                 // This doesn't count login failures towards account lockout
@@ -84,25 +100,46 @@ namespace FrontEnd.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    Console.WriteLine("Logeado exitoso");
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    //return RedirectToPage("/Index");
+                    if(User!=null){
+                    if(User.Identity.IsAuthenticated)
+                    {
+                            Console.WriteLine(User.GetType().ToString());
+                            Console.WriteLine(User.Identity.IsAuthenticated);
+                            Console.WriteLine(User.Identity.Name);
+                            Console.WriteLine(User.Identity.AuthenticationType);
+                            Console.WriteLine("Claims");
+                            foreach(var claim in User.Claims)
+                            {
+                                Console.WriteLine(claim.Type);
+                                Console.WriteLine(claim.Value);
+                            }
+                            //RedirectToPage("/Index");
+                        }
+                    }
+                    return RedirectToPage("/Index");
                 }
                 if (result.RequiresTwoFactor)
                 {
+                    Console.WriteLine("Requiere 2 factores");
                     return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
                 }
                 if (result.IsLockedOut)
                 {
+                    Console.WriteLine("esta locked out");
                     _logger.LogWarning("User account locked out.");
                     return RedirectToPage("./Lockout");
                 }
                 else
                 {
+                    Console.WriteLine("login invalido");
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                     return Page();
                 }
             }
-
+            Console.WriteLine("Algo fallo en el login");
             // If we got this far, something failed, redisplay form
             return Page();
         }
