@@ -27,11 +27,11 @@
                     <div class="logo_name">Administrador Operativo</div>
                     <i class='bx bx-menu' id="boton-sidebar"></i>
                 </div>
+                <div class="side-usuario">
+                    <i class='bx bxs-user'></i>
+                    <span class="links_name">@User.Identity.Name</span>
+                </div>
                 <ul class="nav-list">
-                    <a>
-                        <i class='bx bxs-user'></i>
-                        <span class="links_name">@User.Identity.Name</span>
-                    </a>
                     <li>
                         <a asp-page="/Index">
                             <i class='bx bx-grid-alt'></i>
@@ -90,7 +90,7 @@
                     @RenderBody()
 
             </section>
-            <div class="border-top footer text-muted navbar pie">
+            <div class="footer text-muted navbar pie">
                 <div class="container text-center">
                     <h5>Desarrollado por Team D Desarrolladores - 2021 &copy;</h5>
                 </div>
